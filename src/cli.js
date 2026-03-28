@@ -7,6 +7,8 @@ const { stdin, stdout } = require("process");
 
 const repoRoot = path.resolve(__dirname, "..");
 const templateRoot = path.join(repoRoot, "templates");
+const skillRoot = path.join(repoRoot, "skills");
+const x29SkillPrefix = "x29-";
 const stageLayout = [
   {
     templateDir: "define",
@@ -40,6 +42,7 @@ function printHelp() {
 
 Usage:
   x29 init [target-directory] [--number <value>] [--title <value>]
+  x29 install-windsurf [target-repository]
   x29 --help
 `);
 }
@@ -183,6 +186,29 @@ async function promptForMissingInitValues(options) {
   }
 }
 
+async function promptForMissingInstallLocation(options) {
+  if (options.targetDirectory) {
+    return options;
+  }
+
+  const rl = readline.createInterface({
+    input: stdin,
+    output: stdout
+  });
+
+  try {
+    const targetDirectory =
+      (await rl.question("Target repository location [.]: ")) || ".";
+
+    return {
+      ...options,
+      targetDirectory
+    };
+  } finally {
+    rl.close();
+  }
+}
+
 function ensureDir(dirPath) {
   fs.mkdirSync(dirPath, { recursive: true });
 }
@@ -203,6 +229,95 @@ function copyDir(source, target) {
       fs.copyFileSync(sourcePath, targetPath);
     }
   }
+}
+
+function emptyDir(dirPath) {
+  if (!fs.existsSync(dirPath)) {
+    return;
+  }
+
+  for (const entry of fs.readdirSync(dirPath, { withFileTypes: true })) {
+    const entryPath = path.join(dirPath, entry.name);
+    if (entry.isDirectory()) {
+      fs.rmSync(entryPath, { recursive: true, force: true });
+    } else {
+      fs.rmSync(entryPath, { force: true });
+    }
+  }
+}
+
+function removeDirIfExists(dirPath) {
+  if (fs.existsSync(dirPath)) {
+    fs.rmSync(dirPath, { recursive: true, force: true });
+  }
+}
+
+function writeFile(filePath, content) {
+  fs.writeFileSync(filePath, content, "utf8");
+}
+
+function listSkillEntries() {
+  const skillEntries = [];
+
+  for (const stage of fs.readdirSync(skillRoot, { withFileTypes: true })) {
+    if (!stage.isDirectory()) {
+      continue;
+    }
+
+    const stageRoot = path.join(skillRoot, stage.name);
+    for (const mode of fs.readdirSync(stageRoot, { withFileTypes: true })) {
+      if (!mode.isDirectory()) {
+        continue;
+      }
+
+      const sourcePath = path.join(stageRoot, mode.name, "SKILL.md");
+      if (!fs.existsSync(sourcePath)) {
+        continue;
+      }
+
+      skillEntries.push({
+        stage: stage.name,
+        mode: mode.name,
+        sourcePath,
+        targetName: `${x29SkillPrefix}${stage.name}-${mode.name}`
+      });
+    }
+  }
+
+  return skillEntries.sort((a, b) => a.targetName.localeCompare(b.targetName));
+}
+
+function installWindsurfSkills(targetDirectory) {
+  const resolvedTarget = path.resolve(process.cwd(), targetDirectory);
+  const windsurfRoot = path.join(resolvedTarget, ".windsurf");
+  const windsurfSkillsRoot = path.join(windsurfRoot, "skills");
+  const sourceSkills = listSkillEntries();
+  const managedTargetNames = new Set(sourceSkills.map((entry) => entry.targetName));
+
+  ensureDir(windsurfSkillsRoot);
+
+  for (const entry of fs.readdirSync(windsurfSkillsRoot, { withFileTypes: true })) {
+    if (!entry.isDirectory()) {
+      continue;
+    }
+
+    if (!entry.name.startsWith(x29SkillPrefix)) {
+      continue;
+    }
+
+    if (!managedTargetNames.has(entry.name)) {
+      removeDirIfExists(path.join(windsurfSkillsRoot, entry.name));
+    }
+  }
+
+  for (const skill of sourceSkills) {
+    const targetSkillRoot = path.join(windsurfSkillsRoot, skill.targetName);
+    ensureDir(targetSkillRoot);
+    emptyDir(targetSkillRoot);
+    fs.copyFileSync(skill.sourcePath, path.join(targetSkillRoot, "SKILL.md"));
+  }
+
+  console.log(`Installed ${sourceSkills.length} x29 Windsurf skills into ${windsurfSkillsRoot}`);
 }
 
 function initializeStageTemplates(capabilityRoot) {
@@ -226,7 +341,7 @@ Use this directory for supporting stage material that should remain reviewable b
 
 function writeFileIfMissing(filePath, content) {
   if (!fs.existsSync(filePath)) {
-    fs.writeFileSync(filePath, content, "utf8");
+    writeFile(filePath, content);
   }
 }
 
@@ -274,13 +389,20 @@ async function main() {
       return;
     }
 
-    if (parsedOptions.command !== "init") {
-      throw new Error(`Unknown command: ${parsedOptions.command}`);
+    if (parsedOptions.command === "install-windsurf") {
+      const options = await promptForMissingInstallLocation(parsedOptions);
+      installWindsurfSkills(options.targetDirectory);
+      return;
     }
 
-    const options = await promptForMissingInitValues(parsedOptions);
-    const capabilityName = buildCapabilityName(options.number, options.title);
-    initWorkspace(options.targetDirectory, capabilityName);
+    if (parsedOptions.command === "init") {
+      const options = await promptForMissingInitValues(parsedOptions);
+      const capabilityName = buildCapabilityName(options.number, options.title);
+      initWorkspace(options.targetDirectory, capabilityName);
+      return;
+    }
+
+    throw new Error(`Unknown command: ${parsedOptions.command}`);
   } catch (error) {
     console.error(error.message);
     process.exitCode = 1;
