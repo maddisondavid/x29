@@ -1,3 +1,8 @@
+---
+name: "x29-define-validate"
+description: "Use for the define stage when checking whether the current definition artifacts are ready to move into design."
+---
+
 # Define / Validate
 
 ## Purpose

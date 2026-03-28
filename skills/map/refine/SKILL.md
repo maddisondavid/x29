@@ -1,3 +1,8 @@
+---
+name: "x29-map-refine"
+description: "Use for the map stage when one impact area needs deeper analysis, clearer boundaries, or later perspective-specific refinement."
+---
+
 # Map / Refine
 
 ## Purpose

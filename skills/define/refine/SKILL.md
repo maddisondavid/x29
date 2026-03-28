@@ -1,3 +1,8 @@
+---
+name: "x29-define-refine"
+description: "Use for the define stage when one area of scope, acceptance criteria, assumptions, or open questions needs to be deepened in a reviewable document-first way."
+---
+
 # Define / Refine
 
 ## Purpose

@@ -1,3 +1,8 @@
+---
+name: "x29-plan-validate"
+description: "Use for the plan stage when checking whether slices, specs, and sequencing are ready to support implementation."
+---
+
 # Plan / Validate
 
 ## Purpose

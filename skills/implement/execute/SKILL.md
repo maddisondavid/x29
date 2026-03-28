@@ -1,3 +1,8 @@
+---
+name: "x29-implement-execute"
+description: "Use for the implement stage when carrying out a reviewable implementation slice while keeping execution notes and unresolved issues current."
+---
+
 # Implement / Execute
 
 ## Purpose

@@ -1,3 +1,8 @@
+---
+name: "x29-implement-synthesize"
+description: "Use for the implement stage when execution notes need to be rolled up into a concise implementation summary for reviewers or stakeholders."
+---
+
 # Implement / Synthesize
 
 ## Purpose

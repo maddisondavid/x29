@@ -1,3 +1,8 @@
+---
+name: "x29-plan-synthesize"
+description: "Use for the plan stage when the working plan needs to be condensed into a cleaner stakeholder-facing rollout summary."
+---
+
 # Plan / Synthesize
 
 ## Purpose

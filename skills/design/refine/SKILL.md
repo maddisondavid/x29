@@ -1,3 +1,8 @@
+---
+name: "x29-design-refine"
+description: "Use for the design stage when one design area needs deeper option analysis, clearer rationale, or refinement from a later role or perspective."
+---
+
 # Design / Refine
 
 ## Purpose

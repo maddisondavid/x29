@@ -96,7 +96,7 @@ x29/
 - `skills/`: reusable stage/mode skill definitions
 - `templates/`: starter document templates for stage artifacts
 - `examples/`: example capability layout showing expected working structure
-- `scripts/` and `src/`: bootstrap and CLI support for `x29 init` and `x29 install-windsurf`
+- `scripts/` and `src/`: bootstrap and CLI support for `x29 init`, `x29 install-windsurf`, and `x29 install-codex`
 - `docs/`: supporting usage documentation
 
 ## Usage Model
@@ -218,6 +218,20 @@ x29 install-windsurf ../target-repo
 ```
 
 This creates or updates `.windsurf/skills/` in the target repository and installs flat x29-prefixed skill directories such as `x29-define-context-breakdown` and `x29-plan-validate`. Rerunning the command refreshes x29-managed skills and removes stale `x29-*` skill directories, while leaving unrelated `.windsurf` content untouched.
+
+To install the toolkit skills into a target repository for Codex:
+
+```bash
+x29 install-codex
+```
+
+Or with an explicit target path:
+
+```bash
+x29 install-codex ../target-repo
+```
+
+This creates or updates `.codex/skills/` in the target repository and installs the same flat x29-prefixed skill directories. Rerunning the command refreshes x29-managed skills and removes stale `x29-*` skill directories, while leaving unrelated `.codex` content untouched.
 
 See [docs/usage.md](/C:/Users/maddi/source/x29/docs/usage.md) and [docs/init.md](/C:/Users/maddi/source/x29/docs/init.md) for details.
 

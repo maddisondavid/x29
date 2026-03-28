@@ -1,3 +1,8 @@
+---
+name: "x29-design-synthesize"
+description: "Use for the design stage when decomposed design notes need to be turned into a cleaner stakeholder-facing design rollup."
+---
+
 # Design / Synthesize
 
 ## Purpose

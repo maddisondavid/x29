@@ -1,3 +1,8 @@
+---
+name: "x29-map-synthesize"
+description: "Use for the map stage when scattered impact notes need a cleaner summary for downstream planning and review."
+---
+
 # Map / Synthesize
 
 ## Purpose

@@ -1,3 +1,8 @@
+---
+name: "x29-plan-refine"
+description: "Use for the plan stage when one slice, spec, dependency, or delivery sequence needs deeper planning detail or later role-based refinement."
+---
+
 # Plan / Refine
 
 ## Purpose

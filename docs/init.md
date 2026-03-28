@@ -50,6 +50,30 @@ Installed layout:
 
 The command manages only `x29-*` skill directories inside `.windsurf/skills/`. On rerun it updates current x29 skills and removes stale x29-managed entries, but leaves unrelated `.windsurf` files and non-x29 skills untouched.
 
+## Codex Skills
+
+Use the separate command below to install x29 skills into a target repository's `.codex` directory:
+
+```bash
+x29 install-codex <target-repository>
+```
+
+If the target path is omitted, the command prompts for it.
+
+Installed layout:
+
+```text
+.codex/
+  skills/
+    x29-define-context-breakdown/
+      SKILL.md
+    x29-design-refine/
+      SKILL.md
+    ...
+```
+
+The command manages only `x29-*` skill directories inside `.codex/skills/`. On rerun it updates current x29 skills and removes stale x29-managed entries, but leaves unrelated `.codex` files and non-x29 skills untouched.
+
 ## What it creates
 
 The bootstrap command creates:

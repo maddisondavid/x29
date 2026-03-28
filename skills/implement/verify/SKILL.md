@@ -1,3 +1,8 @@
+---
+name: "x29-implement-verify"
+description: "Use for the implement stage when checking whether the current implementation slice is actually verified and ready for handoff or closure."
+---
+
 # Implement / Verify
 
 ## Purpose

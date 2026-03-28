@@ -1,3 +1,8 @@
+---
+name: "x29-map-validate"
+description: "Use for the map stage when checking whether component, dependency, API, data, and serviceability impacts are sufficiently mapped to proceed to planning."
+---
+
 # Map / Validate
 
 ## Purpose

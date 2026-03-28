@@ -43,6 +43,7 @@ function printHelp() {
 Usage:
   x29 init [target-directory] [--number <value>] [--title <value>]
   x29 install-windsurf [target-repository]
+  x29 install-codex [target-repository]
   x29 --help
 `);
 }
@@ -320,6 +321,39 @@ function installWindsurfSkills(targetDirectory) {
   console.log(`Installed ${sourceSkills.length} x29 Windsurf skills into ${windsurfSkillsRoot}`);
 }
 
+function installCodexSkills(targetDirectory) {
+  const resolvedTarget = path.resolve(process.cwd(), targetDirectory);
+  const codexRoot = path.join(resolvedTarget, ".codex");
+  const codexSkillsRoot = path.join(codexRoot, "skills");
+  const sourceSkills = listSkillEntries();
+  const managedTargetNames = new Set(sourceSkills.map((entry) => entry.targetName));
+
+  ensureDir(codexSkillsRoot);
+
+  for (const entry of fs.readdirSync(codexSkillsRoot, { withFileTypes: true })) {
+    if (!entry.isDirectory()) {
+      continue;
+    }
+
+    if (!entry.name.startsWith(x29SkillPrefix)) {
+      continue;
+    }
+
+    if (!managedTargetNames.has(entry.name)) {
+      removeDirIfExists(path.join(codexSkillsRoot, entry.name));
+    }
+  }
+
+  for (const skill of sourceSkills) {
+    const targetSkillRoot = path.join(codexSkillsRoot, skill.targetName);
+    ensureDir(targetSkillRoot);
+    emptyDir(targetSkillRoot);
+    fs.copyFileSync(skill.sourcePath, path.join(targetSkillRoot, "SKILL.md"));
+  }
+
+  console.log(`Installed ${sourceSkills.length} x29 Codex skills into ${codexSkillsRoot}`);
+}
+
 function initializeStageTemplates(capabilityRoot) {
   for (const stage of stageLayout) {
     const targetStageRoot = path.join(capabilityRoot, stage.targetDir);
@@ -392,6 +426,12 @@ async function main() {
     if (parsedOptions.command === "install-windsurf") {
       const options = await promptForMissingInstallLocation(parsedOptions);
       installWindsurfSkills(options.targetDirectory);
+      return;
+    }
+
+    if (parsedOptions.command === "install-codex") {
+      const options = await promptForMissingInstallLocation(parsedOptions);
+      installCodexSkills(options.targetDirectory);
       return;
     }
 

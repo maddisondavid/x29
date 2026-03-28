@@ -1,3 +1,8 @@
+---
+name: "x29-define-synthesize"
+description: "Use for the define stage when working notes need to be rolled up into a cleaner stakeholder-facing definition summary without losing important uncertainty."
+---
+
 # Define / Synthesize
 
 ## Purpose

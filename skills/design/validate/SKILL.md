@@ -1,3 +1,8 @@
+---
+name: "x29-design-validate"
+description: "Use for the design stage when checking whether the proposed solution is coherent enough to progress into impact mapping."
+---
+
 # Design / Validate
 
 ## Purpose

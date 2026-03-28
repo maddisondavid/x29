@@ -1,3 +1,8 @@
+---
+name: "x29-define-context-breakdown"
+description: "Use for the define stage when the next task is to summarize current intent, scope, assumptions, and open questions without inventing missing detail."
+---
+
 # Define / Context Breakdown
 
 ## Purpose
