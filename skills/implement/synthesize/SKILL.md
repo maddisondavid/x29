@@ -1,0 +1,36 @@
+# Implement / Synthesize
+
+## Purpose
+
+Produce a concise implementation rollup for stakeholders from execution notes and unresolved issues.
+
+## Expected Inputs
+
+- current `05-execute/` files
+- optional audience target
+
+## Expected Outputs
+
+- a short summary of what was delivered, what remains open, and what to review next
+
+## May Read
+
+- all files under `05-execute/`
+- `04-plan/value-slices.md`
+
+## May Write
+
+- `05-execute/implementation-notes.md`
+
+## Must Not Do
+
+- hide unresolved issues
+- replace detailed execution records with a polished summary
+
+## Handoff
+
+Hand off to `implement/verify` if synthesis exposes weak evidence or incomplete closure.
+
+## TODO
+
+- Add audience-specific rollout and handoff summary formats.

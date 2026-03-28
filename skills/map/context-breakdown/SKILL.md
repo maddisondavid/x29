@@ -1,0 +1,43 @@
+# Map / Context Breakdown
+
+## Purpose
+
+Orient the `map` stage by identifying what parts of the system are likely affected, what interfaces may change, and where impact understanding is still thin.
+
+## Expected Inputs
+
+- current `03-map/` files
+- relevant `01-define/` and `02-design/` artifacts
+- known codebase or system topology context
+
+## Expected Outputs
+
+- a grounded summary of likely impact areas
+- missing analysis areas captured explicitly
+- a recommendation for the next mapping pass
+
+## May Read
+
+- all files under `01-define/`
+- all files under `02-design/`
+- all files under `03-map/`
+
+## May Write
+
+- `03-map/components-impacted.md`
+- `03-map/api-and-data-changes.md`
+- `03-map/dependency-impact.md`
+
+## Must Not Do
+
+- infer broad system impact without evidence
+- turn mapping into a delivery plan
+- suppress uncertainty around legacy or poorly understood areas
+
+## Handoff
+
+Hand off to `map/refine` for a specific impact area, or to `map/validate` when impact coverage appears sufficient.
+
+## TODO
+
+- Add stronger guidance for partially known systems and discovery-heavy mapping.

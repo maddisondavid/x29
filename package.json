@@ -1,0 +1,24 @@
+{
+  "name": "x29",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A staged reasoning toolkit for AI-assisted software delivery.",
+  "bin": {
+    "x29": "./src/cli.js"
+  },
+  "scripts": {
+    "init": "node ./src/cli.js init",
+    "check": "node ./scripts/check-scaffold.js"
+  },
+  "keywords": [
+    "ai",
+    "toolkit",
+    "workflow",
+    "reasoning",
+    "delivery"
+  ],
+  "license": "SEE LICENSE IN LICENSE",
+  "engines": {
+    "node": ">=18"
+  }
+}
