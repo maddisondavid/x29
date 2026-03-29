@@ -271,7 +271,8 @@ function listSkillEntries() {
         continue;
       }
 
-      const sourcePath = path.join(stageRoot, mode.name, "SKILL.md");
+      const sourceRoot = path.join(stageRoot, mode.name);
+      const sourcePath = path.join(sourceRoot, "SKILL.md");
       if (!fs.existsSync(sourcePath)) {
         continue;
       }
@@ -279,6 +280,7 @@ function listSkillEntries() {
       skillEntries.push({
         stage: stage.name,
         mode: mode.name,
+        sourceRoot,
         sourcePath,
         targetName: `${x29SkillPrefix}${stage.name}-${mode.name}`
       });
@@ -315,7 +317,7 @@ function installWindsurfSkills(targetDirectory) {
     const targetSkillRoot = path.join(windsurfSkillsRoot, skill.targetName);
     ensureDir(targetSkillRoot);
     emptyDir(targetSkillRoot);
-    fs.copyFileSync(skill.sourcePath, path.join(targetSkillRoot, "SKILL.md"));
+    copyDir(skill.sourceRoot, targetSkillRoot);
   }
 
   console.log(`Installed ${sourceSkills.length} x29 Windsurf skills into ${windsurfSkillsRoot}`);
@@ -348,7 +350,7 @@ function installCodexSkills(targetDirectory) {
     const targetSkillRoot = path.join(codexSkillsRoot, skill.targetName);
     ensureDir(targetSkillRoot);
     emptyDir(targetSkillRoot);
-    fs.copyFileSync(skill.sourcePath, path.join(targetSkillRoot, "SKILL.md"));
+    copyDir(skill.sourceRoot, targetSkillRoot);
   }
 
   console.log(`Installed ${sourceSkills.length} x29 Codex skills into ${codexSkillsRoot}`);
