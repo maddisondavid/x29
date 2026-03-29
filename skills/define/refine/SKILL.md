@@ -47,6 +47,7 @@ Use exactly one active role per pass unless the user explicitly asks to chain an
 - `operability-support`
 - `ux-workflow`
 - `data-contracts`
+- `hardware`
 
 Load the role guidance from these files:
 
@@ -60,6 +61,7 @@ Load the role guidance from these files:
 - [references/roles/operability-support.md](references/roles/operability-support.md)
 - [references/roles/ux-workflow.md](references/roles/ux-workflow.md)
 - [references/roles/data-contracts.md](references/roles/data-contracts.md)
+- [references/roles/hardware.md](references/roles/hardware.md)
 
 Use [references/refinement-scope-patterns.md](references/refinement-scope-patterns.md) when framing the pre-edit scope announcement.
 

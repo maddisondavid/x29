@@ -48,10 +48,11 @@ Treat these as major Design areas:
 - solution blueprint
 - risks and tradeoffs
 - open questions
+- hardware considerations
 
 If one or more major areas are missing, thin, contradictory, or incomplete, do not recommend moving to Map.
 
-If open questions materially affect architecture shape, interfaces, data, security, operability, observability, performance, or migration posture, do not recommend moving to Map.
+If open questions materially affect architecture shape, interfaces, data, security, operability, observability, performance, migration posture, or hardware topology/dependencies, do not recommend moving to Map.
 
 ## May Read
 
