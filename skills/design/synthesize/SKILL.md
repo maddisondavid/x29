@@ -1,48 +1,111 @@
 ---
 name: "x29-design-synthesize"
-description: "Use for the design stage when decomposed design notes need to be turned into a cleaner stakeholder-facing design rollup."
+description: "Use for the design stage when decomposed Design artifacts need to be rolled up into a root-level `capability-design.md` document for stakeholder review without losing uncertainty, alternatives, or tradeoffs."
 ---
 
 # Design / Synthesize
 
 ## Purpose
 
-Create a stakeholder-facing design rollup that communicates the chosen approach, major alternatives, and key tradeoffs without replacing the source design files.
+Produce a root-level `capability-design.md` file for the current capability by synthesizing decomposed Design artifacts into a stakeholder-facing document.
+
+This is a synthesis pass, not a refinement or validation pass. Preserve uncertainty and traceability back to underlying Design files.
 
 ## Capability Directory Check
 
-Before doing any stage work, identify the capability number in scope and confirm the capability folder exists at `capabilities/JA-<number>-<title>/`.
+Before doing stage work, identify the capability number in scope and confirm the capability folder exists at `capabilities/JA-<number>-<title>/`.
 
-If a matching `capabilities/JA-<number>-<title>` directory does not exist, stop and direct the user to run `x29 init` to initialize a new capability directory.
+If a matching capability folder does not exist, stop and direct the user to run `x29 init`.
 
 ## Expected Inputs
 
-- current `02-design/` working documents
-- optional audience target
+- current Design files under `02-design/` or `design/`
+- relevant Define context when needed for framing
+- optional notebook context when it explains unresolved direction
+- optional target audience such as product leadership, architecture review, or delivery leadership
 
 ## Expected Outputs
 
-- a concise design narrative for review
-- stable references back to detailed documents
+- a root-level `capability-design.md` file inside the capability folder
+- preserved alternatives, assumptions, caveats, and unresolved questions
+- older root-level design file versioned before replacement when one already exists
+
+Use the structure from [references/capability-design-template.md](references/capability-design-template.md).
+
+## Output File Rules
+
+Write synthesized output to:
+
+- `capability-design.md`
+
+If `capability-design.md` already exists:
+
+- rename the existing file before writing the new one
+- use the pattern `capability-design-VXXXX.md`
+- use a zero-padded four-digit version number such as `V0001`, `V0002`, and so on
+- choose the next available version number rather than overwriting
+
+Then write the new synthesis to `capability-design.md`.
+
+## Required Section Order
+
+The synthesized output must contain these sections in this order:
+
+1. `Summary`
+2. `Design Goals and Constraints`
+3. `Options Considered`
+4. `Decision`
+5. `Solution Blueprint`
+6. `Risks and Tradeoffs`
+7. `Open Questions`
+
+Use the bundled template as default structure. Preserve this order even when a section is brief.
+
+## Synthesis Behavior
+
+- read the current Design package first
+- synthesize from structured Design files before notebook sources
+- keep source Design files as the detailed working set
+- keep synthesized output readable and stakeholder-facing
+- preserve uncertainty and disagreement rather than smoothing it away
+- keep `human:` intent visible where it materially affects understanding
 
 ## May Read
 
 - all files under `02-design/`
-- `01-define/summary.md` when helpful for context framing
+- all files under `design/`
+- all files under `01-define/`
+- `notebook/**/*.md`
+- `notes/**/*.md`
+- [references/capability-design-template.md](references/capability-design-template.md)
 
 ## May Write
 
-- `02-design/decision.md`
+- `capability-design.md`
+- `capability-design-VXXXX.md`
 
 ## Must Not Do
 
-- flatten meaningful design uncertainty
-- overwrite detailed reasoning with presentation language
+- overwrite an existing `capability-design.md` without versioning it first
+- overwrite decomposed Design working files with synthesized rollup content
+- erase caveats, unresolved questions, or `human:` intent
+- drift into Map, Plan, or Execute work
+
+## Incomplete Information
+
+When the Design package is incomplete:
+
+- still produce the best available synthesis if requested
+- state uncertainty clearly in relevant sections
+- preserve unresolved items in `Open Questions`
+- avoid turning weak source material into false certainty
 
 ## Handoff
 
-Hand off to `design/validate` if synthesis exposes inconsistencies or missing rationale.
+Hand off to `design/refine` if synthesis exposes specific clarity gaps that need a bounded design pass.
+
+Hand off to `design/validate` when the synthesized and decomposed design artifacts appear coherent enough for readiness review.
 
 ## TODO
 
-- Add a compact architecture review template.
+- Add audience-aware language guidance for architecture-review versus stakeholder-summary contexts.
