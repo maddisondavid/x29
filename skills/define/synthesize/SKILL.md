@@ -73,7 +73,6 @@ Use the bundled template as the default structure. Preserve the section order ev
 - all files under `01-define/`
 - all files under `define/`
 - `notebook/**/*.md`
-- `notes/**/*.md`
 - [references/capability-definition-template.md](references/capability-definition-template.md)
 
 ## May Write

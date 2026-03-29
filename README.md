@@ -46,17 +46,17 @@ These stages are intentionally broad. In this first pass, `x29` does not hard-co
 
 Within each stage, work is driven through a small set of reusable interaction modes:
 
-- `breakdown`
-- `refine`
-- `validate`
-- optional `synthesize`
+- Breakdown (`breakdown`)
+- Refine (`refine`)
+- Validate (`validate`)
+- optional Synthesis (`synthesize`)
 
 The `implement` stage uses slightly different operational names where it matters:
 
-- `breakdown`
-- `execute`
-- `verify`
-- optional `synthesize`
+- Breakdown (`breakdown`)
+- Execute (`execute`)
+- Verify (`verify`)
+- optional Synthesis (`synthesize`)
 
 These are meant to be reusable patterns, not a giant registry of narrowly scoped agents.
 
@@ -109,10 +109,10 @@ The normal flow is:
 
 1. Select a capability.
 2. Work through one stage folder at a time under `capabilities/JA-<number>-Short-Title/`.
-3. Use `breakdown` to understand the current state of that stage.
-4. Use `refine` to deepen one area at a time.
-5. Use `validate` to check readiness before progressing.
-6. Optionally use `synthesize` to create a cleaner stakeholder-facing rollup.
+3. Use Breakdown (`breakdown`) to understand the current state of that stage.
+4. Use Refine (`refine`) to deepen one area at a time.
+5. Use Validate (`validate`) to check readiness before progressing.
+6. Optionally use Synthesis (`synthesize`) to create a cleaner stakeholder-facing rollup.
 7. Move to the next stage only when the current one is ready.
 
 Agent guardrail: before stage work begins, confirm the capability number in scope and verify a matching `capabilities/JA-<number>-<title>/` directory exists. If it does not, direct the user to run `x29 init` to initialize a new capability directory.

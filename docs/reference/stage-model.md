@@ -10,18 +10,18 @@
 
 ## Modes
 
-- `breakdown`: summarize current state, identify gaps, and orient the next pass
-- `refine`: deepen one area of a stage without trying to solve the entire stage in one pass
-- `validate`: perform a readiness check before advancing
-- `synthesize`: produce a cleaner stakeholder-facing rollup from decomposed working files
+- Breakdown (`breakdown`): summarize current state, identify gaps, and orient the next pass
+- Refine (`refine`): deepen one area of a stage without trying to solve the entire stage in one pass
+- Validate (`validate`): perform a readiness check before advancing
+- Synthesis (`synthesize`): produce a cleaner stakeholder-facing rollup from decomposed working files
 
 ## Implementation Variants
 
 The `implement` stage uses:
 
-- `breakdown`
-- `execute`
-- `verify`
-- `synthesize`
+- Breakdown (`breakdown`)
+- Execute (`execute`)
+- Verify (`verify`)
+- Synthesis (`synthesize`)
 
 This naming reflects that implementation is more operational than exploratory.

@@ -3,7 +3,7 @@ name: "x29-design-breakdown"
 description: "Use for the design stage when Define is ready and the team needs a first structured `02-design/` package that captures options, decision direction, blueprint shape, and key tradeoffs without drifting into map, plan, or implementation."
 ---
 
-# Design / Context Breakdown
+# Design / Breakdown
 
 ## Purpose
 
@@ -108,7 +108,6 @@ Ask focused questions when needed, especially around:
 - `02-design/**/*.md`
 - `system-architecture/**/*`
 - `notebook/**/*.md`
-- `notes/**/*.md`
 - capability-level `README.md`
 - workspace-level `x29.md`
 
