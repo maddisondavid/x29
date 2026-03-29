@@ -1,6 +1,6 @@
 # x29
 
-![x29 repository image](assets/repo-image.jpeg)
+<img src="assets/repo-image.jpeg" alt="x29 repository image" width="720" />
 
 `x29` is a staged reasoning toolkit for AI-assisted software delivery.
 
