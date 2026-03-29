@@ -3,7 +3,7 @@ name: "x29-implement-breakdown"
 description: "Use for the implement stage when the next task is to summarize implementation state, slice boundaries, blockers, and what needs execution or verification next."
 ---
 
-# Implement / Context Breakdown
+# Implement / Breakdown
 
 ## Purpose
 

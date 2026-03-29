@@ -140,7 +140,6 @@ Do not block unnecessarily, but do not flatten ambiguity into false certainty.
 - `design/**/*.md`
 - `system-architecture/**/*`
 - `notebook/**/*.md`
-- `notes/**/*.md`
 - capability-level `README.md`
 - workspace-level `x29.md`
 - the selected role file under `references/roles/`

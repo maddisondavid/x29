@@ -73,7 +73,7 @@ Use [references/refinement-scope-patterns.md](references/refinement-scope-patter
   - `notebook/capability-definition-notes.md`
   - `notebook/meeting-notes.md`
   - `notebook/stakeholder-feedback.md`
-- optional additional notes under `notes/`
+- optional additional notes under `notebook/`
 - relevant `human:` markup in the Define files
 - a selected refinement role
 
@@ -100,7 +100,7 @@ Read and write within whichever Define directory is actually present. Do not nor
 
 Notebook files are loose context, not the structured source of truth.
 
-Inspect notebook or notes files when they are relevant to the active role, especially:
+Inspect notebook files when they are relevant to the active role, especially:
 
 - `notebook/capability-definition-notes.md`
 - `notebook/meeting-notes.md`
@@ -161,7 +161,6 @@ Do not block unnecessarily, but do not flatten ambiguity into false certainty.
 - `01-define/**/*.md`
 - `define/**/*.md`
 - `notebook/**/*.md`
-- `notes/**/*.md`
 - capability-level `README.md`
 - workspace-level `x29.md`
 - the selected role file under `references/roles/`
@@ -174,12 +173,11 @@ Do not block unnecessarily, but do not flatten ambiguity into false certainty.
 
 Typical updates are limited to:
 
-- `00-summary.md`
-- `01-scope.md`
-- `02-description.md`
-- `03-risks.md`
-- `04-open-questions.md`
-- `acceptance-criteria/*.md`
+- `summary.md`
+- `assumptions.md`
+- `acceptance-criteria.md`
+- `open-questions.md`
+- `hardware.md`
 
 ## Must Not Do
 

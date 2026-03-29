@@ -23,7 +23,7 @@ If a matching capability folder does not exist, stop and direct the user to run 
 - materially complete Design artifacts under `02-design/` or `design/`
 - system architecture context under `system-architecture/`
 - current codebase structure and module boundaries
-- optional notebook and notes context when it clarifies Design intent
+- optional notebook context when it clarifies Design intent
 - inline `human:` annotations that constrain mapping assumptions
 
 Design files may vary in naming. Read the full Design package rather than requiring one exact filename.
@@ -140,7 +140,6 @@ Each `03-map/components/<component-name>.md` file should include:
 - `system-architecture/**/*`
 - source code and module directories needed to ground component boundaries
 - `notebook/**/*.md`
-- `notes/**/*.md`
 - capability-level `README.md`
 - workspace-level `x29.md`
 

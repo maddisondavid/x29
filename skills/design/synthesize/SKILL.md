@@ -76,7 +76,6 @@ Use the bundled template as default structure. Preserve this order even when a s
 - all files under `design/`
 - all files under `01-define/`
 - `notebook/**/*.md`
-- `notes/**/*.md`
 - [references/capability-design-template.md](references/capability-design-template.md)
 
 ## May Write
