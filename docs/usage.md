@@ -35,19 +35,16 @@ Use fewer files and lighter refinement for low-risk changes. Use more complete s
 
 The initializer creates a structure under `capabilities/<capability-name>/` using numbered stage directories:
 
+- `notebook/`
 - `01-define/`
 - `02-design/`
 - `03-map/`
 - `04-plan/`
 - `05-execute/`
 
-Supporting working folders are included where they are most useful:
+`notebook/` is the shared loose-input area for human notes, meeting notes, stakeholder feedback, and other working material. Teams can trim or expand the artifact set as needed, but the stage folder pattern should remain stable so the skills stay reusable.
 
-- `01-define/context/`
-- `02-design/notebook/`
-- `03-map/notebook/`
-
-Teams can trim or expand the artifact set as needed, but the stage folder pattern should remain stable so the skills stay reusable.
+`x29 init` creates the stage directories but does not create stage files inside them. Those files should be added later by agents when a stage actually starts.
 
 ## Windsurf Integration
 

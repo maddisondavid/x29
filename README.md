@@ -126,17 +126,15 @@ The working repository structure for a capability is:
 ```text
 capabilities/
   JA-<number>-Short-Title/
+    notebook/
     01-define/
-      context/
     02-design/
-      notebook/
     03-map/
-      notebook/
     04-plan/
     05-execute/
 ```
 
-`01-define/context/` is for supporting material gathered during definition. `02-design/notebook/` and `03-map/notebook/` are deliberately loose holding areas for spikes, human notes, and other exploratory material that should remain visible without forcing a fixed template too early.
+`notebook/` is the shared loose-input area for capability notes, meeting notes, stakeholder feedback, and other human working material that should remain visible without becoming the structured source of truth for a stage.
 
 ## Document-Centric Collaboration
 
@@ -207,7 +205,7 @@ Or, once linked:
 x29 init
 ```
 
-The initializer asks for the target location, capability number, and short title, then creates a starter capability structure and copies stage templates into place.
+The initializer asks for the target location, capability number, and short title, then creates a starter capability structure with a root `notebook/` directory and empty stage directories. Stage files are expected to be created later by agents as work starts in each stage.
 
 To install the toolkit skills into a target repository for Windsurf:
 
@@ -246,7 +244,7 @@ This first pass focuses on repository quality and workflow clarity:
 - a clean repository structure
 - durable root documentation
 - realistic placeholder skills
-- starter templates for stage artifacts
+- reusable stage templates and examples for agent-driven stage setup
 - an example capability layout
 - a simple `x29 init` bootstrap flow
 

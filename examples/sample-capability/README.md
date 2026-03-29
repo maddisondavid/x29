@@ -8,12 +8,10 @@ The content is intentionally lightweight. It demonstrates structure, decompositi
 
 ```text
 sample-capability/
+  notebook/
   01-define/
-    context/
   02-design/
-    notebook/
   03-map/
-    notebook/
   04-plan/
   05-execute/
 ```
