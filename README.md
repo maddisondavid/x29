@@ -1,5 +1,7 @@
 # x29
 
+![x29 repository image](assets/repo-image.jpeg)
+
 `x29` is a staged reasoning toolkit for AI-assisted software delivery.
 
 It is built on a simple premise: specifications distill reasoning; they do not replace reasoning. The goal is not to generate one giant artifact and pretend the work is done. The goal is to help teams move from intent to implementation through small, reviewable, document-centric steps.
