@@ -115,6 +115,8 @@ The normal flow is:
 6. Optionally use `synthesize` to create a cleaner stakeholder-facing rollup.
 7. Move to the next stage only when the current one is ready.
 
+Agent guardrail: before stage work begins, confirm the capability number in scope and verify a matching `capabilities/JA-<number>-<title>/` directory exists. If it does not, direct the user to run `x29 init` to initialize a new capability directory.
+
 The `implement` stage maps to the working folder `05-execute/`. It follows the same spirit, but swaps `refine` for `execute` and `validate` for `verify`.
 
 ### Default Capability Layout

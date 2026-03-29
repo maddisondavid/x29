@@ -9,6 +9,12 @@ description: "Use for the implement stage when checking whether the current impl
 
 Check whether the current implementation slice is actually ready, including correctness signals, unresolved issues, and alignment with the plan.
 
+## Capability Directory Check
+
+Before doing any stage work, identify the capability number in scope and confirm the capability folder exists at `capabilities/JA-<number>-<title>/`.
+
+If a matching `capabilities/JA-<number>-<title>` directory does not exist, stop and direct the user to run `x29 init` to initialize a new capability directory.
+
 ## Expected Inputs
 
 - current implementation notes

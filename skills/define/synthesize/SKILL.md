@@ -9,6 +9,12 @@ description: "Use for the define stage when working notes need to be rolled up i
 
 Produce a cleaner stakeholder-facing rollup of the `define` stage from the decomposed working files while preserving the underlying source documents.
 
+## Capability Directory Check
+
+Before doing any stage work, identify the capability number in scope and confirm the capability folder exists at `capabilities/JA-<number>-<title>/`.
+
+If a matching `capabilities/JA-<number>-<title>` directory does not exist, stop and direct the user to run `x29 init` to initialize a new capability directory.
+
 ## Expected Inputs
 
 - current `01-define/` files

@@ -9,6 +9,12 @@ description: "Use for the define stage when checking whether the current definit
 
 Check whether the `define` stage is ready to progress. This is a readiness gate, not a document beautification pass.
 
+## Capability Directory Check
+
+Before doing any stage work, identify the capability number in scope and confirm the capability folder exists at `capabilities/JA-<number>-<title>/`.
+
+If a matching `capabilities/JA-<number>-<title>` directory does not exist, stop and direct the user to run `x29 init` to initialize a new capability directory.
+
 ## Expected Inputs
 
 - completed or partially completed `01-define/` artifacts

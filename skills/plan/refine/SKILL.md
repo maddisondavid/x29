@@ -9,6 +9,12 @@ description: "Use for the plan stage when one slice, spec, dependency, or delive
 
 Improve the delivery plan one area at a time, especially value slicing, spec indexing, sequencing, and implementation readiness.
 
+## Capability Directory Check
+
+Before doing any stage work, identify the capability number in scope and confirm the capability folder exists at `capabilities/JA-<number>-<title>/`.
+
+If a matching `capabilities/JA-<number>-<title>` directory does not exist, stop and direct the user to run `x29 init` to initialize a new capability directory.
+
 ## Expected Inputs
 
 - current `04-plan/` documents

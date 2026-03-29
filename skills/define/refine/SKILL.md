@@ -9,6 +9,12 @@ description: "Use for the define stage when one area of scope, acceptance criter
 
 Deepen one aspect of the `define` stage at a time, such as acceptance criteria, scope boundaries, assumptions, or unresolved questions.
 
+## Capability Directory Check
+
+Before doing any stage work, identify the capability number in scope and confirm the capability folder exists at `capabilities/JA-<number>-<title>/`.
+
+If a matching `capabilities/JA-<number>-<title>` directory does not exist, stop and direct the user to run `x29 init` to initialize a new capability directory.
+
 ## Expected Inputs
 
 - current `01-define/` working files

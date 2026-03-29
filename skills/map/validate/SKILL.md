@@ -9,6 +9,12 @@ description: "Use for the map stage when checking whether component, dependency,
 
 Check whether the impact analysis is complete enough to support planning and execution sequencing.
 
+## Capability Directory Check
+
+Before doing any stage work, identify the capability number in scope and confirm the capability folder exists at `capabilities/JA-<number>-<title>/`.
+
+If a matching `capabilities/JA-<number>-<title>` directory does not exist, stop and direct the user to run `x29 init` to initialize a new capability directory.
+
 ## Expected Inputs
 
 - current `03-map/` artifacts

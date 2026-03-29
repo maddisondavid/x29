@@ -11,6 +11,8 @@ The expected workflow is straightforward:
 4. Within a stage, work through `context-breakdown`, `refine`, `validate`, and optional `synthesize`.
 5. Do not advance stages just because a document exists; advance when the stage is actually ready.
 
+Before any agent starts stage work, it should confirm which capability number is in scope and verify that a matching directory exists in `capabilities/JA-<number>-<title>/`. If no matching capability directory exists, direct the user to run `x29 init` before continuing.
+
 ## Collaboration Pattern
 
 - Documents hold the working state.

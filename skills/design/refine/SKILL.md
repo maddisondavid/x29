@@ -9,6 +9,12 @@ description: "Use for the design stage when one design area needs deeper option 
 
 Deepen one design area at a time by comparing options, clarifying the chosen approach, and documenting the reasoning behind it.
 
+## Capability Directory Check
+
+Before doing any stage work, identify the capability number in scope and confirm the capability folder exists at `capabilities/JA-<number>-<title>/`.
+
+If a matching `capabilities/JA-<number>-<title>` directory does not exist, stop and direct the user to run `x29 init` to initialize a new capability directory.
+
 ## Expected Inputs
 
 - `01-define/` artifacts

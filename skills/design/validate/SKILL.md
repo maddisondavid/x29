@@ -9,6 +9,12 @@ description: "Use for the design stage when checking whether the proposed soluti
 
 Check whether the design is ready to move into `map` by testing internal coherence, traceability to `define`, and risk visibility.
 
+## Capability Directory Check
+
+Before doing any stage work, identify the capability number in scope and confirm the capability folder exists at `capabilities/JA-<number>-<title>/`.
+
+If a matching `capabilities/JA-<number>-<title>` directory does not exist, stop and direct the user to run `x29 init` to initialize a new capability directory.
+
 ## Expected Inputs
 
 - current `02-design/` files
