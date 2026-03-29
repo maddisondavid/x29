@@ -82,7 +82,6 @@ The bootstrap command creates:
 - `capabilities/<capability-name>/`
 - a root `notebook/` directory inside the capability for loose human notes and working inputs
 - numbered stage subdirectories
-- a sample layout marker so teams can see the intended working shape immediately
 
 It does not pre-populate stage files. Those are expected to be added later by agents as stage work begins.
 
