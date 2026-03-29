@@ -44,7 +44,7 @@ If a matching `capabilities/JA-<number>-<title>` directory does not exist, stop 
 
 ## Handoff
 
-Hand off to `map/context-breakdown` when the chosen design is clear enough to analyze impact.
+Hand off to `map/breakdown` when the chosen design is clear enough to analyze impact.
 
 ## TODO
 

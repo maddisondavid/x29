@@ -1,5 +1,5 @@
 ---
-name: "x29-map-context-breakdown"
+name: "x29-map-breakdown"
 description: "Use for the map stage when the next task is to summarize impacted components, dependencies, interfaces, and observability considerations."
 ---
 

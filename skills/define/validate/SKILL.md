@@ -70,7 +70,7 @@ If open questions remain and they materially affect scope, stakeholder intent, c
 
 ## Handoff
 
-Hand off to `design/context-breakdown` only when the definition is complete enough to support solution exploration without major unresolved definition gaps.
+Hand off to `design/breakdown` only when the definition is complete enough to support solution exploration without major unresolved definition gaps.
 
 ## TODO
 

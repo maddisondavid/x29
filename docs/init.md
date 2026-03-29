@@ -41,7 +41,7 @@ Installed layout:
 ```text
 .windsurf/
   skills/
-    x29-define-context-breakdown/
+    x29-define-breakdown/
       SKILL.md
     x29-design-refine/
       SKILL.md
@@ -65,7 +65,7 @@ Installed layout:
 ```text
 .codex/
   skills/
-    x29-define-context-breakdown/
+    x29-define-breakdown/
       SKILL.md
     x29-design-refine/
       SKILL.md

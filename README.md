@@ -46,14 +46,14 @@ These stages are intentionally broad. In this first pass, `x29` does not hard-co
 
 Within each stage, work is driven through a small set of reusable interaction modes:
 
-- `context-breakdown`
+- `breakdown`
 - `refine`
 - `validate`
 - optional `synthesize`
 
 The `implement` stage uses slightly different operational names where it matters:
 
-- `context-breakdown`
+- `breakdown`
 - `execute`
 - `verify`
 - optional `synthesize`
@@ -109,7 +109,7 @@ The normal flow is:
 
 1. Select a capability.
 2. Work through one stage folder at a time under `capabilities/JA-<number>-Short-Title/`.
-3. Use `context-breakdown` to understand the current state of that stage.
+3. Use `breakdown` to understand the current state of that stage.
 4. Use `refine` to deepen one area at a time.
 5. Use `validate` to check readiness before progressing.
 6. Optionally use `synthesize` to create a cleaner stakeholder-facing rollup.
@@ -219,7 +219,7 @@ Or with an explicit target path:
 x29 install-windsurf ../target-repo
 ```
 
-This creates or updates `.windsurf/skills/` in the target repository and installs flat x29-prefixed skill directories such as `x29-define-context-breakdown` and `x29-plan-validate`. Rerunning the command refreshes x29-managed skills and removes stale `x29-*` skill directories, while leaving unrelated `.windsurf` content untouched.
+This creates or updates `.windsurf/skills/` in the target repository and installs flat x29-prefixed skill directories such as `x29-define-breakdown` and `x29-plan-validate`. Rerunning the command refreshes x29-managed skills and removes stale `x29-*` skill directories, while leaving unrelated `.windsurf` content untouched.
 
 To install the toolkit skills into a target repository for Codex:
 

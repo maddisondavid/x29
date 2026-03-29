@@ -1,5 +1,5 @@
 ---
-name: "x29-define-context-breakdown"
+name: "x29-define-breakdown"
 description: "Use for the define stage when rough product-manager intent needs to be turned into the first structured `01-define/` package. Use when Codex should inspect loose notebook or notes files, ground itself in available architecture context, create small reviewable Define artifacts, and surface assumptions, ambiguity, and open questions without drifting into design, mapping, planning, or implementation."
 ---
 

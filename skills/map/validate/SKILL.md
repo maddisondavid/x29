@@ -43,7 +43,7 @@ If a matching `capabilities/JA-<number>-<title>` directory does not exist, stop 
 
 ## Handoff
 
-Hand off to `plan/context-breakdown` when the impact map is strong enough to sequence work intentionally.
+Hand off to `plan/breakdown` when the impact map is strong enough to sequence work intentionally.
 
 ## TODO
 

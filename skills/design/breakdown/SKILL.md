@@ -1,5 +1,5 @@
 ---
-name: "x29-design-context-breakdown"
+name: "x29-design-breakdown"
 description: "Use for the design stage when the next task is to summarize the current solution direction, decisions in progress, tradeoffs, and design gaps."
 ---
 

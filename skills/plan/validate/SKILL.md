@@ -43,7 +43,7 @@ If a matching `capabilities/JA-<number>-<title>` directory does not exist, stop 
 
 ## Handoff
 
-Hand off to `implement/context-breakdown` when the plan is ready enough to start execution deliberately.
+Hand off to `implement/breakdown` when the plan is ready enough to start execution deliberately.
 
 ## TODO
 

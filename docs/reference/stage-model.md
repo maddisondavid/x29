@@ -10,7 +10,7 @@
 
 ## Modes
 
-- `context-breakdown`: summarize current state, identify gaps, and orient the next pass
+- `breakdown`: summarize current state, identify gaps, and orient the next pass
 - `refine`: deepen one area of a stage without trying to solve the entire stage in one pass
 - `validate`: perform a readiness check before advancing
 - `synthesize`: produce a cleaner stakeholder-facing rollup from decomposed working files
@@ -19,7 +19,7 @@
 
 The `implement` stage uses:
 
-- `context-breakdown`
+- `breakdown`
 - `execute`
 - `verify`
 - `synthesize`

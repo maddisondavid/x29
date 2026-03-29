@@ -1,5 +1,5 @@
 ---
-name: "x29-plan-context-breakdown"
+name: "x29-plan-breakdown"
 description: "Use for the plan stage when the next task is to summarize current slices, sequencing, delivery assumptions, and remaining planning gaps."
 ---
 
