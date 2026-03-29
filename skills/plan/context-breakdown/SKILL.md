@@ -9,6 +9,12 @@ description: "Use for the plan stage when the next task is to summarize current 
 
 Orient the `plan` stage by identifying the current slice strategy, sequencing assumptions, and readiness for implementation planning.
 
+## Capability Directory Check
+
+Before doing any stage work, identify the capability number in scope and confirm the capability folder exists at `capabilities/JA-<number>-<title>/`.
+
+If a matching `capabilities/JA-<number>-<title>` directory does not exist, stop and direct the user to run `x29 init` to initialize a new capability directory.
+
 ## Expected Inputs
 
 - current `04-plan/` files

@@ -9,6 +9,12 @@ description: "Use for the design stage when decomposed design notes need to be t
 
 Create a stakeholder-facing design rollup that communicates the chosen approach, major alternatives, and key tradeoffs without replacing the source design files.
 
+## Capability Directory Check
+
+Before doing any stage work, identify the capability number in scope and confirm the capability folder exists at `capabilities/JA-<number>-<title>/`.
+
+If a matching `capabilities/JA-<number>-<title>` directory does not exist, stop and direct the user to run `x29 init` to initialize a new capability directory.
+
 ## Expected Inputs
 
 - current `02-design/` working documents

@@ -9,6 +9,12 @@ description: "Use for the design stage when the next task is to summarize the cu
 
 Summarize the current design state by identifying what solution direction is being considered, what decisions already exist, and where design ambiguity still remains.
 
+## Capability Directory Check
+
+Before doing any stage work, identify the capability number in scope and confirm the capability folder exists at `capabilities/JA-<number>-<title>/`.
+
+If a matching `capabilities/JA-<number>-<title>` directory does not exist, stop and direct the user to run `x29 init` to initialize a new capability directory.
+
 ## Expected Inputs
 
 - existing `02-design/` files

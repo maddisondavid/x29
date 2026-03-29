@@ -9,6 +9,12 @@ description: "Use for the implement stage when carrying out a reviewable impleme
 
 Carry out the implementation slice while keeping execution notes, unresolved issues, and handoff clarity current.
 
+## Capability Directory Check
+
+Before doing any stage work, identify the capability number in scope and confirm the capability folder exists at `capabilities/JA-<number>-<title>/`.
+
+If a matching `capabilities/JA-<number>-<title>` directory does not exist, stop and direct the user to run `x29 init` to initialize a new capability directory.
+
 ## Expected Inputs
 
 - current implementation slice context

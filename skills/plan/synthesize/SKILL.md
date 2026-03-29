@@ -9,6 +9,12 @@ description: "Use for the plan stage when the working plan needs to be condensed
 
 Produce a concise stakeholder-facing plan summary from the decomposed planning documents.
 
+## Capability Directory Check
+
+Before doing any stage work, identify the capability number in scope and confirm the capability folder exists at `capabilities/JA-<number>-<title>/`.
+
+If a matching `capabilities/JA-<number>-<title>` directory does not exist, stop and direct the user to run `x29 init` to initialize a new capability directory.
+
 ## Expected Inputs
 
 - current `04-plan/` files
