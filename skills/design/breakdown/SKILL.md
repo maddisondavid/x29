@@ -40,6 +40,7 @@ Create or update these files:
 - `02-design/03-solution-blueprint.md`
 - `02-design/04-risks-and-tradeoffs.md`
 - `02-design/05-open-questions.md`
+- `02-design/06-hardware.md`
 
 ## Workflow
 
@@ -63,6 +64,8 @@ Ground the draft in:
 - dependency and integration assumptions
 
 If architecture context is weak or missing, say so explicitly in `04-risks-and-tradeoffs.md` and `05-open-questions.md`.
+
+Capture hardware implications in `06-hardware.md` when the capability depends on device, firmware, sensor, gateway, or physical deployment constraints. If no hardware impact exists, keep `06-hardware.md` with a clear `TODO:` note stating that no hardware changes are currently required.
 
 ## Writing Rules
 
@@ -117,6 +120,7 @@ Ask focused questions when needed, especially around:
 - `02-design/03-solution-blueprint.md`
 - `02-design/04-risks-and-tradeoffs.md`
 - `02-design/05-open-questions.md`
+- `02-design/06-hardware.md`
 
 ## Must Not Do
 

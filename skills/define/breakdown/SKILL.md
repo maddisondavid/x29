@@ -48,6 +48,7 @@ Create or update these files:
 - `01-define/acceptance-criteria/operability-support.md`
 - `01-define/acceptance-criteria/ux-workflow.md`
 - `01-define/acceptance-criteria/data-contracts.md`
+- `01-define/acceptance-criteria/hardware.md`
 
 ## Workflow
 
@@ -134,6 +135,8 @@ If architecture context is weak or missing, say so explicitly in `01-define/03-r
 Keep acceptance criteria split by concern area under `01-define/acceptance-criteria/`.
 
 Populate only categories that are relevant, but keep the full structure present. If a category is not yet applicable or lacks enough information, create the file with `TODO:` and a short reason.
+
+For `acceptance-criteria/hardware.md`, call out device, firmware, sensor, edge gateway, on-prem appliance, or deployment-environment expectations when applicable. If no hardware changes are expected, keep the file and record `TODO:` with a short note such as "No hardware changes identified in current Define scope."
 
 Use the checklist in [references/pm-notes-review-checklist.md](references/pm-notes-review-checklist.md) to probe for gaps before drafting acceptance criteria.
 

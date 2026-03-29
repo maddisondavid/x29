@@ -45,6 +45,7 @@ Use exactly one active role per pass unless the user explicitly asks to chain an
 - `observability-telemetry`
 - `performance-capacity`
 - `rollout-migration`
+- `hardware-topology`
 
 Load role guidance from:
 
@@ -56,6 +57,7 @@ Load role guidance from:
 - [references/roles/observability-telemetry.md](references/roles/observability-telemetry.md)
 - [references/roles/performance-capacity.md](references/roles/performance-capacity.md)
 - [references/roles/rollout-migration.md](references/roles/rollout-migration.md)
+- [references/roles/hardware-topology.md](references/roles/hardware-topology.md)
 
 Use [references/refinement-scope-patterns.md](references/refinement-scope-patterns.md) when framing the pre-edit scope announcement.
 
