@@ -219,7 +219,11 @@ Or with an explicit target path:
 x29 install-windsurf ../target-repo
 ```
 
-This creates or updates `.windsurf/skills/` in the target repository and installs flat x29-prefixed skill directories such as `x29-define-breakdown` and `x29-plan-validate`. Rerunning the command refreshes x29-managed skills and removes stale `x29-*` skill directories, while leaving unrelated `.windsurf` content untouched.
+With no target path, this creates or updates the user's global Windsurf skills directory at `~/.windsurf/skills/` and installs flat x29-prefixed skill directories such as `x29-define-breakdown` and `x29-plan-validate`.
+
+With an explicit target path, it installs into `<target-repository>/.windsurf/skills/` instead.
+
+Rerunning the command refreshes x29-managed skills and removes stale `x29-*` skill directories, while leaving unrelated `.windsurf` content untouched.
 
 To install the toolkit skills into a target repository for Codex:
 

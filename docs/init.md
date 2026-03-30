@@ -31,10 +31,16 @@ JA-<number>-Short-Title
 Use the separate command below to install x29 skills into a target repository's `.windsurf` directory:
 
 ```bash
-x29 install-windsurf <target-repository>
+x29 install-windsurf
 ```
 
-If the target path is omitted, the command prompts for it.
+By default, the command installs into the user's global `.windsurf/skills/` directory.
+
+To install into a specific repository instead, pass a target path:
+
+```bash
+x29 install-windsurf <target-repository>
+```
 
 Installed layout:
 
@@ -48,7 +54,7 @@ Installed layout:
     ...
 ```
 
-The command manages only `x29-*` skill directories inside `.windsurf/skills/`. On rerun it updates current x29 skills and removes stale x29-managed entries, but leaves unrelated `.windsurf` files and non-x29 skills untouched.
+The command manages only `x29-*` skill directories inside the target `.windsurf/skills/` directory. On rerun it updates current x29 skills and removes stale x29-managed entries, but leaves unrelated `.windsurf` files and non-x29 skills untouched.
 
 ## Codex Skills
 

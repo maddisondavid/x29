@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const fs = require("fs");
+const os = require("os");
 const path = require("path");
 const readline = require("readline/promises");
 const { stdin, stdout } = require("process");
@@ -285,8 +286,9 @@ function listSkillEntries() {
 }
 
 function installWindsurfSkills(targetDirectory) {
-  const resolvedTarget = path.resolve(process.cwd(), targetDirectory);
-  const windsurfRoot = path.join(resolvedTarget, ".windsurf");
+  const windsurfRoot = targetDirectory
+    ? path.join(path.resolve(process.cwd(), targetDirectory), ".windsurf")
+    : path.join(os.homedir(), ".windsurf");
   const windsurfSkillsRoot = path.join(windsurfRoot, "skills");
   const sourceSkills = listSkillEntries();
   const managedTargetNames = new Set(sourceSkills.map((entry) => entry.targetName));
@@ -407,8 +409,7 @@ async function main() {
     }
 
     if (parsedOptions.command === "install-windsurf") {
-      const options = await promptForMissingInstallLocation(parsedOptions);
-      installWindsurfSkills(options.targetDirectory);
+      installWindsurfSkills(parsedOptions.targetDirectory);
       return;
     }
 

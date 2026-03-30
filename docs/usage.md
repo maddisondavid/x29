@@ -51,10 +51,16 @@ The initializer creates a structure under `capabilities/<capability-name>/` usin
 To install the current x29 skills into a repository for Windsurf, run:
 
 ```bash
-x29 install-windsurf <target-repository>
+x29 install-windsurf
 ```
 
-The command writes flat skill directories under `.windsurf/skills/` using x29-prefixed names such as `x29-map-refine` and `x29-implement-verify`.
+By default, the command writes flat skill directories into the user's global `.windsurf/skills/` directory using x29-prefixed names such as `x29-map-refine` and `x29-implement-verify`.
+
+To install into a specific repository instead, run:
+
+```bash
+x29 install-windsurf <target-repository>
+```
 
 Rerunning the command is safe. It refreshes the x29-managed skills and removes stale `x29-*` skill folders that no longer exist in the toolkit source, while leaving unrelated `.windsurf` content intact.
 
