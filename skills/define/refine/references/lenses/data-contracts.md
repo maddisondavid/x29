@@ -1,6 +1,6 @@
-# Role: Data Contracts
+# Lens: Data Contracts
 
-## What This Role Cares About
+## What This Lens Cares About
 
 - systems of record, interfaces, and contract boundaries
 - important inputs, outputs, events, or state changes

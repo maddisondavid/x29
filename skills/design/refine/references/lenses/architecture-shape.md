@@ -1,4 +1,4 @@
-# Role: architecture-shape
+# Lens: architecture-shape
 
 ## Focus
 

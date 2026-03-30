@@ -1,4 +1,4 @@
-# Role: hardware-topology
+# Lens: hardware-topology
 
 ## Focus
 

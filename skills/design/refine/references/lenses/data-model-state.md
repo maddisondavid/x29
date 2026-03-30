@@ -1,4 +1,4 @@
-# Role: data-model-state
+# Lens: data-model-state
 
 ## Focus
 

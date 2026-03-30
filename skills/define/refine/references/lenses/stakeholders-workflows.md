@@ -1,6 +1,6 @@
-# Role: Stakeholders Workflows
+# Lens: Stakeholders Workflows
 
-## What This Role Cares About
+## What This Lens Cares About
 
 - impacted stakeholder groups
 - user, operator, approver, and support workflows

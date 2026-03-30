@@ -1,6 +1,6 @@
-# Role: UX Workflow
+# Lens: UX Workflow
 
-## What This Role Cares About
+## What This Lens Cares About
 
 - end-user or operator workflow clarity
 - entry points, decisions, and completion states

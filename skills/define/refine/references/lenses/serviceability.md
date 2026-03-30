@@ -1,6 +1,6 @@
-# Role: Serviceability
+# Lens: Serviceability
 
-## What This Role Cares About
+## What This Lens Cares About
 
 - supportability in production
 - diagnostic visibility for investigation

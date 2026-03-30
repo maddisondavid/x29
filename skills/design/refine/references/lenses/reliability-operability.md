@@ -1,4 +1,4 @@
-# Role: reliability-operability
+# Lens: reliability-operability
 
 ## Focus
 

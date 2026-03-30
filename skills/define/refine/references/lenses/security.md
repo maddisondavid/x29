@@ -1,6 +1,6 @@
-# Role: Security
+# Lens: Security
 
-## What This Role Cares About
+## What This Lens Cares About
 
 - authentication and authorization implications
 - sensitive data handling

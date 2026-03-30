@@ -1,13 +1,13 @@
 ---
 name: "x29-design-refine"
-description: "Use for the design stage when an existing Design package needs a bounded refinement pass from a selected role or perspective. Use when Codex should inspect current design artifacts, ask for the active role, announce read/write scope before editing, and improve decision quality without drifting into map, plan, or implementation."
+description: "Use for the design stage when an existing Design package needs a bounded refinement pass through a selected lens or perspective. Use when Codex should inspect current design artifacts, ask for the active lens, announce read/write scope before editing, and improve decision quality without drifting into map, plan, or implementation."
 ---
 
 # Design / Refine
 
 ## Purpose
 
-Refine an existing Design package one area at a time from a chosen role or perspective.
+Refine an existing Design package one area at a time through a chosen lens or perspective.
 
 This is a Design-stage skill only. It improves the current package in reviewable chunks and does not regenerate the entire design in one pass.
 
@@ -21,11 +21,11 @@ If a matching capability folder does not exist, stop and direct the user to run 
 
 1. Ask for the capability identifier or capability folder.
 2. Inspect the current Design package and relevant Define context.
-3. Ask which role or perspective should be active for this pass.
-   - If the user asks what roles are available, provide the supported-role list before asking them to choose.
-4. Load the matching role file from [references/roles/](references/roles/).
+3. Ask which lens or perspective should be active for this pass.
+   - If the user asks what lenses are available, provide the supported-lens list before asking them to choose.
+4. Load the matching lens file from [references/lenses/](references/lenses/).
 5. Before editing, tell the user:
-   - the active role
+   - the active lens
    - which Design files will be read
    - which Design files may be updated
    - what is out of scope for this pass
@@ -33,9 +33,9 @@ If a matching capability folder does not exist, stop and direct the user to run 
 7. Preserve uncertainty and unresolved tradeoffs explicitly.
 8. Hand off to another Design refinement pass or `design/validate` only when appropriate.
 
-## Supported Roles
+## Supported Lenses
 
-Use exactly one active role per pass unless the user explicitly asks to chain another pass afterward.
+Use exactly one active lens per pass unless the user explicitly asks to chain another pass afterward.
 
 - `architecture-shape`
 - `interfaces-contracts`
@@ -47,17 +47,17 @@ Use exactly one active role per pass unless the user explicitly asks to chain an
 - `rollout-migration`
 - `hardware-topology`
 
-Load role guidance from:
+Load lens guidance from:
 
-- [references/roles/architecture-shape.md](references/roles/architecture-shape.md)
-- [references/roles/interfaces-contracts.md](references/roles/interfaces-contracts.md)
-- [references/roles/data-model-state.md](references/roles/data-model-state.md)
-- [references/roles/security-compliance.md](references/roles/security-compliance.md)
-- [references/roles/reliability-operability.md](references/roles/reliability-operability.md)
-- [references/roles/observability-telemetry.md](references/roles/observability-telemetry.md)
-- [references/roles/performance-capacity.md](references/roles/performance-capacity.md)
-- [references/roles/rollout-migration.md](references/roles/rollout-migration.md)
-- [references/roles/hardware-topology.md](references/roles/hardware-topology.md)
+- [references/lenses/architecture-shape.md](references/lenses/architecture-shape.md)
+- [references/lenses/interfaces-contracts.md](references/lenses/interfaces-contracts.md)
+- [references/lenses/data-model-state.md](references/lenses/data-model-state.md)
+- [references/lenses/security-compliance.md](references/lenses/security-compliance.md)
+- [references/lenses/reliability-operability.md](references/lenses/reliability-operability.md)
+- [references/lenses/observability-telemetry.md](references/lenses/observability-telemetry.md)
+- [references/lenses/performance-capacity.md](references/lenses/performance-capacity.md)
+- [references/lenses/rollout-migration.md](references/lenses/rollout-migration.md)
+- [references/lenses/hardware-topology.md](references/lenses/hardware-topology.md)
 
 Use [references/refinement-scope-patterns.md](references/refinement-scope-patterns.md) when framing the pre-edit scope announcement.
 
@@ -67,14 +67,14 @@ Use [references/refinement-scope-patterns.md](references/refinement-scope-patter
 - an existing Design package under `02-design/` or `design/`
 - upstream Define context under `01-define/` or `define/`
 - optional notebook context and `human:` review notes
-- a selected refinement role
+- a selected refinement lens
 
 ## Expected Outputs
 
 - one bounded refinement pass against the current Design package
 - improved option analysis and/or decision rationale
-- clearer blueprint expectations in the role-relevant files
-- explicit note of what remains open or which role should run next
+- clearer blueprint expectations in the lens-relevant files
+- explicit note of what remains open or which lens should run next
 
 ## Repository Layout Assumption
 
@@ -103,14 +103,14 @@ When `human:` comments are present:
 
 Before making edits, clearly tell the user:
 
-- `Active role: <role>`
+- `Active lens: <lens>`
 - `I will read:`
 - a bullet list using filenames only
 - `I may update:`
 - a bullet list using filenames only
 - `Out of scope for this pass: ...`
 
-Keep the write scope narrow and role-relevant.
+Keep the write scope narrow and lens-relevant.
 
 ## Writing Rules
 
@@ -142,7 +142,7 @@ Do not block unnecessarily, but do not flatten ambiguity into false certainty.
 - `notebook/**/*.md`
 - capability-level `README.md`
 - workspace-level `x29.md`
-- the selected role file under `references/roles/`
+- the selected lens file under `references/lenses/`
 - [references/refinement-scope-patterns.md](references/refinement-scope-patterns.md)
 
 ## May Write
@@ -164,14 +164,14 @@ Typical updates are limited to:
 - produce component impact mapping or dependency inventories (Map)
 - create delivery slices, sequencing plans, or spec indexes (Plan)
 - generate implementation specs or code (Execute)
-- rewrite the full Design package when one bounded role pass is sufficient
+- rewrite the full Design package when one bounded lens pass is sufficient
 
 ## Handoff
 
-Hand off to another `design/refine` pass when a different role or concern still needs work.
+Hand off to another `design/refine` pass when a different lens or concern still needs work.
 
 Hand off to `design/validate` only when the package looks coherent and unresolved tradeoffs are explicit.
 
 ## TODO
 
-- Add heuristics for minimum safe write scope based on selected role and package maturity.
+- Add heuristics for minimum safe write scope based on selected lens and package maturity.

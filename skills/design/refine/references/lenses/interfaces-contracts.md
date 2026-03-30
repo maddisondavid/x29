@@ -1,4 +1,4 @@
-# Role: interfaces-contracts
+# Lens: interfaces-contracts
 
 ## Focus
 

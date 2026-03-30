@@ -1,6 +1,6 @@
-# Role: Scope Boundaries
+# Lens: Scope Boundaries
 
-## What This Role Cares About
+## What This Lens Cares About
 
 - clear in-scope and out-of-scope boundaries
 - hidden assumptions at capability edges

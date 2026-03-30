@@ -1,4 +1,4 @@
-# Role: security-compliance
+# Lens: security-compliance
 
 ## Focus
 

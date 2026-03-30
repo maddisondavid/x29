@@ -1,6 +1,6 @@
-# Role: Hardware
+# Lens: Hardware
 
-## What This Role Cares About
+## What This Lens Cares About
 
 - whether the capability changes physical devices, firmware, edge gateways, or host environment assumptions
 - compatibility constraints across hardware generations, SKUs, and field configurations

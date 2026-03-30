@@ -1,6 +1,6 @@
-# Role: Performance Scale
+# Lens: Performance Scale
 
-## What This Role Cares About
+## What This Lens Cares About
 
 - latency, throughput, concurrency, and growth expectations
 - bulk, real-time, or near-real-time assumptions

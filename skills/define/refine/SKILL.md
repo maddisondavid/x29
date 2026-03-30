@@ -1,13 +1,13 @@
 ---
 name: "x29-define-refine"
-description: "Use for the define stage when an existing Define package needs to be improved one area at a time from a selected role or perspective. Use when Codex should inspect current Define artifacts and notebook notes, ask which refinement role to adopt, load the matching role reference, announce the exact file scope before editing, and make bounded Define-only updates without drifting into design, mapping, planning, or implementation."
+description: "Use for the define stage when an existing Define package needs to be improved one area at a time through a selected lens or perspective. Use when Codex should inspect current Define artifacts and notebook notes, ask which refinement lens to adopt, load the matching lens reference, announce the exact file scope before editing, and make bounded Define-only updates without drifting into design, mapping, planning, or implementation."
 ---
 
 # Define / Refine
 
 ## Purpose
 
-Refine an existing Define package one area at a time from a chosen role or perspective.
+Refine an existing Define package one area at a time through a chosen lens or perspective.
 
 This is a Define-stage skill only. It improves the current package in reviewable chunks and does not attempt to regenerate the whole definition in one pass.
 
@@ -21,11 +21,11 @@ If a matching capability folder does not exist, stop and direct the user to run 
 
 1. Ask for the capability identifier or capability folder.
 2. Inspect the current Define package and relevant notebook material.
-3. Ask which role or perspective should be active for this pass.
-   - If the user asks what roles are available, provide the supported-role list before asking them to choose.
-4. Load the matching role file from [references/roles/](references/roles/).
+3. Ask which lens or perspective should be active for this pass.
+   - If the user asks what lenses are available, provide the supported-lens list before asking them to choose.
+4. Load the matching lens file from [references/lenses/](references/lenses/).
 5. Before editing, tell the user:
-   - the active role
+   - the active lens
    - which Define files will be read
    - which Define files may be updated
    - what is out of scope for this pass
@@ -33,9 +33,9 @@ If a matching capability folder does not exist, stop and direct the user to run 
 7. Preserve uncertainty and unresolved issues explicitly.
 8. Hand off to another Define refinement pass or `define/validate` only when appropriate.
 
-## Supported Roles
+## Supported Lenses
 
-Use exactly one active role per pass unless the user explicitly asks to chain another pass afterward.
+Use exactly one active lens per pass unless the user explicitly asks to chain another pass afterward.
 
 - `product-intent`
 - `scope-boundaries`
@@ -49,19 +49,19 @@ Use exactly one active role per pass unless the user explicitly asks to chain an
 - `data-contracts`
 - `hardware`
 
-Load the role guidance from these files:
+Load the lens guidance from these files:
 
-- [references/roles/product-intent.md](references/roles/product-intent.md)
-- [references/roles/scope-boundaries.md](references/roles/scope-boundaries.md)
-- [references/roles/stakeholders-workflows.md](references/roles/stakeholders-workflows.md)
-- [references/roles/serviceability.md](references/roles/serviceability.md)
-- [references/roles/observability.md](references/roles/observability.md)
-- [references/roles/security.md](references/roles/security.md)
-- [references/roles/performance-scale.md](references/roles/performance-scale.md)
-- [references/roles/operability-support.md](references/roles/operability-support.md)
-- [references/roles/ux-workflow.md](references/roles/ux-workflow.md)
-- [references/roles/data-contracts.md](references/roles/data-contracts.md)
-- [references/roles/hardware.md](references/roles/hardware.md)
+- [references/lenses/product-intent.md](references/lenses/product-intent.md)
+- [references/lenses/scope-boundaries.md](references/lenses/scope-boundaries.md)
+- [references/lenses/stakeholders-workflows.md](references/lenses/stakeholders-workflows.md)
+- [references/lenses/serviceability.md](references/lenses/serviceability.md)
+- [references/lenses/observability.md](references/lenses/observability.md)
+- [references/lenses/security.md](references/lenses/security.md)
+- [references/lenses/performance-scale.md](references/lenses/performance-scale.md)
+- [references/lenses/operability-support.md](references/lenses/operability-support.md)
+- [references/lenses/ux-workflow.md](references/lenses/ux-workflow.md)
+- [references/lenses/data-contracts.md](references/lenses/data-contracts.md)
+- [references/lenses/hardware.md](references/lenses/hardware.md)
 
 Use [references/refinement-scope-patterns.md](references/refinement-scope-patterns.md) when framing the pre-edit scope announcement.
 
@@ -75,12 +75,12 @@ Use [references/refinement-scope-patterns.md](references/refinement-scope-patter
   - `notebook/stakeholder-feedback.md`
 - optional additional notes under `notebook/`
 - relevant `human:` markup in the Define files
-- a selected refinement role
+- a selected refinement lens
 
 ## Expected Outputs
 
 - one bounded refinement pass against the current Define package
-- improved clarity in the role-relevant Define files
+- improved clarity in the lens-relevant Define files
 - explicit assumptions, uncertainty, and unresolved questions preserved in-file
 - a clear note about what remains open or what Define area should be refined next
 
@@ -100,7 +100,7 @@ Read and write within whichever Define directory is actually present. Do not nor
 
 Notebook files are loose context, not the structured source of truth.
 
-Inspect notebook files when they are relevant to the active role, especially:
+Inspect notebook files when they are relevant to the active lens, especially:
 
 - `notebook/capability-definition-notes.md`
 - `notebook/meeting-notes.md`
@@ -123,14 +123,14 @@ When `human:` comments are present:
 
 Before making edits, clearly tell the user:
 
-- `Active role: <role>`
+- `Active lens: <lens>`
 - `I will read:`
 - a bullet list using filenames only, for example `assumptions.md` or `open-questions.md`
 - `I may update:`
 - a bullet list using filenames only, for example `acceptance-criteria.md`
 - `Out of scope for this pass: ...`
 
-Keep the write scope narrow. Only name files that are plausibly relevant to the chosen role and the current package state.
+Keep the write scope narrow. Only name files that are plausibly relevant to the chosen lens and the current package state.
 
 ## Writing Rules
 
@@ -141,7 +141,7 @@ Keep the write scope narrow. Only name files that are plausibly relevant to the 
 - mark uncertainty clearly
 - never present guesses as confirmed facts
 - do not rewrite unrelated files
-- do not make broad edits outside the active role scope
+- do not make broad edits outside the active lens scope
 
 ## Incomplete Information
 
@@ -151,7 +151,7 @@ When information is incomplete:
 - preserve unresolved ambiguity explicitly
 - add or update `04-open-questions.md` when the gap needs review
 - leave `TODO:` markers where later Define refinement is needed
-- say when the active role lacks enough source material to confidently sharpen the package
+- say when the active lens lacks enough source material to confidently sharpen the package
 
 Do not block unnecessarily, but do not flatten ambiguity into false certainty.
 
@@ -163,7 +163,7 @@ Do not block unnecessarily, but do not flatten ambiguity into false certainty.
 - `notebook/**/*.md`
 - capability-level `README.md`
 - workspace-level `x29.md`
-- the selected role file under `references/roles/`
+- the selected lens file under `references/lenses/`
 - [references/refinement-scope-patterns.md](references/refinement-scope-patterns.md)
 
 ## May Write
@@ -187,15 +187,15 @@ Typical updates are limited to:
 - create implementation specs
 - generate code
 - move work into Design, Map, Plan, or Implement
-- rewrite the entire Define package when only one role-focused pass is needed
+- rewrite the entire Define package when only one lens-focused pass is needed
 
 ## Handoff
 
-Hand off to another `define/refine` pass when a different role or concern area still needs attention.
+Hand off to another `define/refine` pass when a different lens or concern area still needs attention.
 
 Hand off to `define/validate` only when the Define package looks materially coherent and remaining open questions are explicit rather than hidden.
 
 ## TODO
 
-- Add stronger heuristics for choosing the minimum safe write scope from the active role.
+- Add stronger heuristics for choosing the minimum safe write scope from the active lens.
 - Add lightweight examples showing how to phrase the scope announcement for sparse versus fuller Define packages.

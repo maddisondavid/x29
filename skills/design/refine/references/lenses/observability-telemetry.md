@@ -1,4 +1,4 @@
-# Role: observability-telemetry
+# Lens: observability-telemetry
 
 ## Focus
 

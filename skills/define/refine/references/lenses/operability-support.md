@@ -1,6 +1,6 @@
-# Role: Operability Support
+# Lens: Operability Support
 
-## What This Role Cares About
+## What This Lens Cares About
 
 - operational ownership
 - support and admin handling after release
@@ -39,4 +39,4 @@
 
 - writing full runbooks
 - assigning ownership without evidence
-- turning this role into delivery planning
+- turning this lens into delivery planning

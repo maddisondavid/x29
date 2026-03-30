@@ -1,6 +1,6 @@
 ---
 name: "x29-plan-refine"
-description: "Use for the plan stage when one slice, spec, dependency, or delivery sequence needs deeper planning detail or later role-based refinement."
+description: "Use for the plan stage when one slice, spec, dependency, or delivery sequence needs deeper planning detail or later lens-based refinement."
 ---
 
 # Plan / Refine
@@ -52,7 +52,7 @@ Hand off to `plan/validate` when slices are reviewable, sequenced, and grounded 
 
 ## Future Direction
 
-Later versions should support role or perspective switching for delivery, QA, platform, and release-management lenses within the same planning stage.
+Later versions should support lens or perspective switching for delivery, QA, platform, and release-management viewpoints within the same planning stage.
 
 ## TODO
 

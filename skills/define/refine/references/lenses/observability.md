@@ -1,6 +1,6 @@
-# Role: Observability
+# Lens: Observability
 
-## What This Role Cares About
+## What This Lens Cares About
 
 - metrics, logs, traces, and events needed for operational visibility
 - alerting or detection expectations

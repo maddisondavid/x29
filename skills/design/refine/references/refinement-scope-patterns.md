@@ -22,7 +22,7 @@ Use when decision status or rationale is unclear.
 
 Use when options exist but consequences are under-specified.
 
-- read: `01-options-considered.md`, `04-risks-and-tradeoffs.md`, selected role guidance
+- read: `01-options-considered.md`, `04-risks-and-tradeoffs.md`, selected lens guidance
 - write: `01-options-considered.md`, `04-risks-and-tradeoffs.md`
 - out of scope: large structural rewrites of the blueprint
 

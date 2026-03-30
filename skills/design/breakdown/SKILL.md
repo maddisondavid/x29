@@ -142,7 +142,7 @@ Do not block unnecessarily, but do not fabricate confidence.
 
 ## Handoff
 
-Hand off to `design/refine` when one decision area needs deeper role-focused treatment.
+Hand off to `design/refine` when one decision area needs deeper lens-focused treatment.
 
 Hand off to `design/validate` only after options, decision direction, blueprint, and tradeoffs are all materially present.
 

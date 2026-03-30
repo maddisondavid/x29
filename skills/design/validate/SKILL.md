@@ -73,7 +73,7 @@ If open questions materially affect architecture shape, interfaces, data, securi
 
 ## Handoff
 
-Hand off to `design/refine` when design is not ready and the missing work can be addressed in bounded role-focused passes.
+Hand off to `design/refine` when design is not ready and the missing work can be addressed in bounded lens-focused passes.
 
 Hand off to `map/breakdown` only when design is coherent enough to analyze component and dependency impact.
 

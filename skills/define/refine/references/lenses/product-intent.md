@@ -1,6 +1,6 @@
-# Role: Product Intent
+# Lens: Product Intent
 
-## What This Role Cares About
+## What This Lens Cares About
 
 - clear statement of the capability need
 - the user or business problem being addressed
