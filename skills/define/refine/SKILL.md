@@ -1,201 +1,54 @@
 ---
 name: "x29-define-refine"
-description: "Use for the define stage when an existing Define package needs to be improved one area at a time through a selected lens or perspective. Use when Codex should inspect current Define artifacts and notebook notes, ask which refinement lens to adopt, load the matching lens reference, announce the exact file scope before editing, and make bounded Define-only updates without drifting into design, mapping, planning, or implementation."
+description: "Used when Define artifacts exist and one concern area needs focused improvement through a specific lens."
 ---
 
 # Define / Refine
 
-## Purpose
+## Routing Contract
 
-Refine an existing Define package one area at a time through a chosen lens or perspective.
+- **Stage:** `define`
+- **Mode:** `refine`
+- **Trigger requests:** “review this from a security lens”, “resolve comments in serviceability acceptance criteria”, or any Define-focused improvement request.
+- **Problem solved:** Improves one Define concern at a time while keeping uncertainty visible and file scope bounded.
+- **Common lenses:**
+- security
+- serviceability
+- observability
+- data-contracts
+- ux-workflow
+- performance-scale
+- operability-support
+- hardware
 
-This is a Define-stage skill only. It improves the current package in reviewable chunks and does not attempt to regenerate the whole definition in one pass.
+## File Scope
 
-## Capability Directory Check
-
-Before doing stage work, identify the capability number in scope and confirm the capability folder exists at `capabilities/JA-<number>-<title>/`.
-
-If a matching capability folder does not exist, stop and direct the user to run `x29 init`.
-
-## Interaction Flow
-
-1. Ask for the capability identifier or capability folder.
-2. Inspect the current Define package and relevant notebook material.
-3. Ask which lens or perspective should be active for this pass.
-   - If the user asks what lenses are available, provide the supported-lens list before asking them to choose.
-4. Load the matching lens file from [references/lenses/](references/lenses/).
-5. Before editing, tell the user:
-   - the active lens
-   - which Define files will be read
-   - which Define files may be updated
-   - what is out of scope for this pass
-6. Refine only the relevant Define artifacts.
-7. Preserve uncertainty and unresolved issues explicitly.
-8. Hand off to another Define refinement pass or `define/validate` only when appropriate.
-
-## Supported Lenses
-
-Use exactly one active lens per pass unless the user explicitly asks to chain another pass afterward.
-
-- `product-intent`
-- `scope-boundaries`
-- `stakeholders-workflows`
-- `serviceability`
-- `observability`
-- `security`
-- `performance-scale`
-- `operability-support`
-- `ux-workflow`
-- `data-contracts`
-- `hardware`
-
-Load the lens guidance from these files:
-
-- [references/lenses/product-intent.md](references/lenses/product-intent.md)
-- [references/lenses/scope-boundaries.md](references/lenses/scope-boundaries.md)
-- [references/lenses/stakeholders-workflows.md](references/lenses/stakeholders-workflows.md)
-- [references/lenses/serviceability.md](references/lenses/serviceability.md)
-- [references/lenses/observability.md](references/lenses/observability.md)
-- [references/lenses/security.md](references/lenses/security.md)
-- [references/lenses/performance-scale.md](references/lenses/performance-scale.md)
-- [references/lenses/operability-support.md](references/lenses/operability-support.md)
-- [references/lenses/ux-workflow.md](references/lenses/ux-workflow.md)
-- [references/lenses/data-contracts.md](references/lenses/data-contracts.md)
-- [references/lenses/hardware.md](references/lenses/hardware.md)
-
-Use [references/refinement-scope-patterns.md](references/refinement-scope-patterns.md) when framing the pre-edit scope announcement.
-
-## Expected Inputs
-
-- a capability folder or capability identifier
-- an existing Define package under `01-define/` or `define/`
-- optional notebook context such as:
-  - `notebook/capability-definition-notes.md`
-  - `notebook/meeting-notes.md`
-  - `notebook/stakeholder-feedback.md`
-- optional additional notes under `notebook/`
-- relevant `human:` markup in the Define files
-- a selected refinement lens
-
-## Expected Outputs
-
-- one bounded refinement pass against the current Define package
-- improved clarity in the lens-relevant Define files
-- explicit assumptions, uncertainty, and unresolved questions preserved in-file
-- a clear note about what remains open or what Define area should be refined next
-
-## Repository Layout Assumption
-
-Prefer the numbered X29 stage layout:
-
-- `01-define/`
-
-Be tolerant of capability folders that use:
-
-- `define/`
-
-Read and write within whichever Define directory is actually present. Do not normalize the repository structure unless the user asks for that separately.
-
-## Notebook Handling
-
-Notebook files are loose context, not the structured source of truth.
-
-Inspect notebook files when they are relevant to the active lens, especially:
-
-- `notebook/capability-definition-notes.md`
-- `notebook/meeting-notes.md`
-- `notebook/stakeholder-feedback.md`
-
-Use notebook material to clarify intent, decisions, stakeholder feedback, or unresolved concerns. Do not rewrite notebook files unless the user explicitly asks.
-
-## `human:` Markup
-
-Treat inline `human:` markup in relevant files as priority refinement input.
-
-When `human:` comments are present:
-
-- treat them as explicit review requests or constraints
-- resolve them in context where possible
-- preserve unresolved concerns as explicit open questions or uncertainty notes
-- do not silently delete unresolved intent
-
-## File Scope Announcement
-
-Before making edits, clearly tell the user:
-
-- `Active lens: <lens>`
-- `I will read:`
-- a bullet list using filenames only, for example `assumptions.md` or `open-questions.md`
-- `I may update:`
-- a bullet list using filenames only, for example `acceptance-criteria.md`
-- `Out of scope for this pass: ...`
-
-Keep the write scope narrow. Only name files that are plausibly relevant to the chosen lens and the current package state.
-
-## Writing Rules
-
-- prefer concise markdown
-- keep changes small and reviewable
-- preserve file decomposition instead of collapsing work into one large document
-- mark assumptions clearly
-- mark uncertainty clearly
-- never present guesses as confirmed facts
-- do not rewrite unrelated files
-- do not make broad edits outside the active lens scope
-
-## Incomplete Information
-
-When information is incomplete:
-
-- improve only what can be grounded in the existing Define package and notebook context
-- preserve unresolved ambiguity explicitly
-- add or update `04-open-questions.md` when the gap needs review
-- leave `TODO:` markers where later Define refinement is needed
-- say when the active lens lacks enough source material to confidently sharpen the package
-
-Do not block unnecessarily, but do not flatten ambiguity into false certainty.
-
-## May Read
-
-- `system-architecture/**/*`
-- `01-define/**/*.md`
-- `define/**/*.md`
+### Reads
+- `01-define/**/*.md or define/**/*.md`
 - `notebook/**/*.md`
-- capability-level `README.md`
-- workspace-level `x29.md`
-- the selected lens file under `references/lenses/`
-- [references/refinement-scope-patterns.md](references/refinement-scope-patterns.md)
+- `selected lens reference under references/lenses/`
 
-## May Write
+### Writes
+- `bounded updates inside 01-define/ or define/ files`
 
-- files inside `01-define/`
-- files inside `define/`
+## Operating Rules
 
-Typical updates are limited to:
-
-- `summary.md`
-- `assumptions.md`
-- `acceptance-criteria.md`
-- `open-questions.md`
-- `hardware.md`
+- Announce routing before editing: stage, mode, inferred/selected lens, read scope, write scope, and out-of-scope areas.
+- Preserve inline `human:` comments and resolve them in-place when asked.
+- Keep artifacts reviewable and explicit about assumptions, unknowns, and risks.
+- Leave explicit `TODO:` markers where later refinement is expected.
 
 ## Must Not Do
 
-- produce architecture design
-- map software component changes
-- create delivery slices
-- create implementation specs
-- generate code
-- move work into Design, Map, Plan, or Implement
-- rewrite the entire Define package when only one lens-focused pass is needed
+- Rewrite the whole stage in one pass
+- Change other stages
+- Remove unresolved `human:` comments without tracking them
 
-## Handoff
+## Done Means
 
-Hand off to another `define/refine` pass when a different lens or concern area still needs attention.
+Lens-focused updates are complete, unresolved items remain explicit, and the next lens or validation step is stated.
 
-Hand off to `define/validate` only when the Define package looks materially coherent and remaining open questions are explicit rather than hidden.
+## Next Likely Step
 
-## TODO
+Use stage readiness to decide whether to run another `define/refine` pass, a `define` validation gate, or hand off to the next stage.
 
-- Add stronger heuristics for choosing the minimum safe write scope from the active lens.
-- Add lightweight examples showing how to phrase the scope announcement for sparse versus fuller Define packages.

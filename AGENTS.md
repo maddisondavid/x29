@@ -2,21 +2,26 @@
 
 ## Repo Intent
 
-`x29` is a document-centric staged reasoning toolkit for AI-assisted software delivery. Optimize for clarity, reviewability, and durable workflow defaults over clever automation.
+`x29` is a stage-based reasoning operating system for AI-assisted delivery.
 
-## Working Rules
+Design for clarity, trust, and reviewability over clever automation.
 
-- Prefer small focused markdown files over monolithic documents.
-- Preserve and respect inline `human:` annotations.
-- Keep stage logic lightweight unless a file explicitly asks for deeper structure.
-- Reuse the stage/mode skill patterns instead of inventing narrow one-off agents.
-- Treat `validate` and `verify` as readiness gates before advancing stages.
-- Use the numbered capability stage folders as the default working layout: `01-define`, `02-design`, `03-map`, `04-plan`, `05-execute`.
-- Put reusable workflow guidance in `skills/`, not in ad hoc root docs.
+## Durable Working Rules
+
+- Treat stage conversation as the primary UX; treat internal skills as implementation details.
+- Preserve the lifecycle flow: Define → Design → Map → Plan → Implement.
+- Preserve the stage mode flow: Breakdown → Refine → Validate (or Verify) → optional Synthesis.
+- Enforce transparency before edits: announce stage, mechanism, lens, read scope, write scope, and out-of-scope.
+- Preserve and resolve inline `human:` comments; never silently drop unresolved human intent.
+- Keep artifacts small, reviewable, and document-centric.
+- Keep uncertainty explicit; do not turn ambiguity into fake certainty.
+- Treat `validate` and `verify` as readiness gates before stage advancement.
+- Prefer numbered stage folders in capability workspaces: `01-define`, `02-design`, `03-map`, `04-plan`, `05-execute`.
+- Keep reusable guidance in `skills/` and `docs/`, not ad hoc root files.
 
 ## Editing Guidance
 
-- Keep placeholder instructions realistic and professional.
-- Leave explicit `TODO:` markers where later prompts should refine behavior.
-- Avoid introducing unnecessary framework or package complexity.
-- Keep generated examples understandable to internal teams on first read.
+- Write realistic professional guidance, not abstract placeholder prose.
+- Include explicit `TODO:` markers where future refinement is expected.
+- Avoid unnecessary framework/package complexity.
+- Keep examples understandable on first read by internal teams.

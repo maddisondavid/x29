@@ -1,47 +1,46 @@
 ---
 name: "x29-map-synthesize"
-description: "Use for the map stage when scattered impact notes need a cleaner summary for downstream planning and review."
+description: "Used to create a concise impact summary from detailed map artifacts."
 ---
 
-# Map / Synthesize
+# Map / Synthesis
 
-## Purpose
+## Routing Contract
 
-Produce a concise impact summary that explains what areas are touched and why, while preserving the detailed mapping documents underneath.
+- **Stage:** `map`
+- **Mode:** `synthesis`
+- **Trigger requests:** “summarize impact for stakeholders”, “synthesize map stage”.
+- **Problem solved:** Produces a compact, review-friendly map summary for downstream consumers.
+- **Common lenses:**
+- stakeholders
+- workflows
 
-## Capability Directory Check
+## File Scope
 
-Before doing any stage work, identify the capability number in scope and confirm the capability folder exists at `capabilities/JA-<number>-<title>/`.
-
-If a matching `capabilities/JA-<number>-<title>` directory does not exist, stop and direct the user to run `x29 init` to initialize a new capability directory.
-
-## Expected Inputs
-
-- current `03-map/` working files
-- optional target audience
-
-## Expected Outputs
-
-- a clean summary of system impact and operational considerations
-
-## May Read
-
-- all files under `03-map/`
+### Reads
+- `03-map/**/*.md`
 - `02-design/decision.md`
 
-## May Write
+### Writes
+- `03-map/00-overview.md or stakeholder summary artifact`
 
-- `03-map/components-impacted.md`
+## Operating Rules
+
+- Announce routing before editing: stage, mode, inferred/selected lens, read scope, write scope, and out-of-scope areas.
+- Preserve inline `human:` comments and resolve them in-place when asked.
+- Keep artifacts reviewable and explicit about assumptions, unknowns, and risks.
+- Leave explicit `TODO:` markers where later refinement is expected.
 
 ## Must Not Do
 
-- erase uncertainty around unknown impact zones
-- replace the detailed mapping artifacts
+- Delete detailed map files
+- Mask uncertain impact zones
 
-## Handoff
+## Done Means
 
-Hand off to `map/validate` if synthesis reveals weak coverage.
+Summary clearly communicates what changes, why it changes, and what remains uncertain.
 
-## TODO
+## Next Likely Step
 
-- Add a stakeholder-friendly impact summary pattern.
+Use stage readiness to decide whether to run another `map/synthesis` pass, a `map` validation gate, or hand off to the next stage.
+

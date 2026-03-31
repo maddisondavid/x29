@@ -1,47 +1,47 @@
 ---
 name: "x29-implement-synthesize"
-description: "Use for the implement stage when execution notes need to be rolled up into a concise implementation summary for reviewers or stakeholders."
+description: "Used to summarize delivered implementation outcomes for stakeholders."
 ---
 
-# Implement / Synthesize
+# Implement / Synthesis
 
-## Purpose
+## Routing Contract
 
-Produce a concise implementation rollup for stakeholders from execution notes and unresolved issues.
+- **Stage:** `implement`
+- **Mode:** `synthesis`
+- **Trigger requests:** “summarize implementation”, “create delivery update”.
+- **Problem solved:** Produces concise delivery communication from execution records and verification status.
+- **Common lenses:**
+- stakeholders
+- delivery
 
-## Capability Directory Check
+## File Scope
 
-Before doing any stage work, identify the capability number in scope and confirm the capability folder exists at `capabilities/JA-<number>-<title>/`.
-
-If a matching `capabilities/JA-<number>-<title>` directory does not exist, stop and direct the user to run `x29 init` to initialize a new capability directory.
-
-## Expected Inputs
-
-- current `05-execute/` files
-- optional audience target
-
-## Expected Outputs
-
-- a short summary of what was delivered, what remains open, and what to review next
-
-## May Read
-
-- all files under `05-execute/`
+### Reads
+- `05-execute/**/*.md`
 - `04-plan/value-slices.md`
 
-## May Write
+### Writes
+- `artifacts/stakeholder-rollup.md`
+- `05-execute/implementation-notes.md (summary section)`
 
-- `05-execute/implementation-notes.md`
+## Operating Rules
+
+- Announce routing before editing: stage, mode, inferred/selected lens, read scope, write scope, and out-of-scope areas.
+- Preserve inline `human:` comments and resolve them in-place when asked.
+- Keep artifacts reviewable and explicit about assumptions, unknowns, and risks.
+- Leave explicit `TODO:` markers where later refinement is expected.
 
 ## Must Not Do
 
-- hide unresolved issues
-- replace detailed execution records with a polished summary
+- Hide unresolved issues in final summary
+- Rewrite execution history
 
-## Handoff
+## Done Means
 
-Hand off to `implement/verify` if synthesis exposes weak evidence or incomplete closure.
+Summary states what shipped, what is pending, and what validation evidence exists.
 
-## TODO
+## Next Likely Step
 
-- Add audience-specific rollout and handoff summary formats.
+Use stage readiness to decide whether to run another `implement/synthesis` pass, a `implement` validation gate, or hand off to the next stage.
+

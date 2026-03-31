@@ -1,53 +1,48 @@
 ---
 name: "x29-implement-breakdown"
-description: "Use for the implement stage when the next task is to summarize implementation state, slice boundaries, blockers, and what needs execution or verification next."
+description: "Used when execution starts and the current slice must be oriented before coding advances."
 ---
 
 # Implement / Breakdown
 
-## Purpose
+## Routing Contract
 
-Orient execution by summarizing what slice is being implemented, what supporting context exists, and what unresolved issues may affect the work.
+- **Stage:** `implement`
+- **Mode:** `breakdown`
+- **Trigger requests:** “start execute stage”, “what are we implementing now?”.
+- **Problem solved:** Aligns implementation scope, constraints, and unresolved issues before action.
+- **Common lenses:**
+- scope-boundaries
+- serviceability
 
-## Capability Directory Check
+## File Scope
 
-Before doing any stage work, identify the capability number in scope and confirm the capability folder exists at `capabilities/JA-<number>-<title>/`.
+### Reads
+- `04-plan/**/*.md`
+- `05-execute/**/*.md`
+- `relevant code context`
 
-If a matching `capabilities/JA-<number>-<title>` directory does not exist, stop and direct the user to run `x29 init` to initialize a new capability directory.
-
-## Expected Inputs
-
-- current `05-execute/` files
-- relevant `04-plan/` artifacts
-- any active `human:` comments affecting execution
-
-## Expected Outputs
-
-- a grounded execution summary
-- explicit blockers or uncertainty captured before code changes accelerate
-- a recommendation for the next execution or verification pass
-
-## May Read
-
-- all files under `04-plan/`
-- all files under `05-execute/`
-- adjacent stage summaries where needed for traceability
-
-## May Write
-
+### Writes
 - `05-execute/implementation-notes.md`
 - `05-execute/unresolved-issues.md`
 
+## Operating Rules
+
+- Announce routing before editing: stage, mode, inferred/selected lens, read scope, write scope, and out-of-scope areas.
+- Preserve inline `human:` comments and resolve them in-place when asked.
+- Keep artifacts reviewable and explicit about assumptions, unknowns, and risks.
+- Leave explicit `TODO:` markers where later refinement is expected.
+
 ## Must Not Do
 
-- start coding blindly from partial context
-- ignore unresolved scope or sequencing questions
-- rewrite planning documents as a substitute for implementation notes
+- Start coding with unclear slice boundaries
+- Ignore unresolved blockers
 
-## Handoff
+## Done Means
 
-Hand off to `implement/execute` when the current slice and constraints are clear enough to act.
+Execution context is clear enough to proceed with a bounded implementation pass.
 
-## TODO
+## Next Likely Step
 
-- Add stronger support for execution kickoff against partially complete plans.
+Use stage readiness to decide whether to run another `implement/breakdown` pass, a `implement` validation gate, or hand off to the next stage.
+

@@ -1,53 +1,52 @@
 ---
 name: "x29-plan-breakdown"
-description: "Use for the plan stage when the next task is to summarize current slices, sequencing, delivery assumptions, and remaining planning gaps."
+description: "Used when mapping is ready and delivery sequencing must be initialized."
 ---
 
 # Plan / Breakdown
 
-## Purpose
+## Routing Contract
 
-Orient the `plan` stage by identifying the current slice strategy, sequencing assumptions, and readiness for implementation planning.
+- **Stage:** `plan`
+- **Mode:** `breakdown`
+- **Trigger requests:** “start planning”, “break down value slices”.
+- **Problem solved:** Creates initial value slices, sequencing assumptions, and planning gaps.
+- **Common lenses:**
+- delivery
+- risk
+- stakeholders
 
-## Capability Directory Check
+## File Scope
 
-Before doing any stage work, identify the capability number in scope and confirm the capability folder exists at `capabilities/JA-<number>-<title>/`.
+### Reads
+- `04-plan/**/*.md (if present)`
+- `03-map/**/*.md`
+- `02-design/**/*.md`
+- `01-define/**/*.md`
 
-If a matching `capabilities/JA-<number>-<title>` directory does not exist, stop and direct the user to run `x29 init` to initialize a new capability directory.
-
-## Expected Inputs
-
-- current `04-plan/` files
-- relevant `01-define/`, `02-design/`, and `03-map/` artifacts
-
-## Expected Outputs
-
-- a summary of the planning state
-- explicit planning gaps, dependencies, or blockers
-- a recommendation for the next planning refinement pass
-
-## May Read
-
-- all files under `01-define/`
-- all files under `02-design/`
-- all files under `03-map/`
-- all files under `04-plan/`
-
-## May Write
-
+### Writes
 - `04-plan/value-slices.md`
 - `04-plan/spec-index.md`
+- `04-plan/spec-template.md`
+
+## Operating Rules
+
+- Announce routing before editing: stage, mode, inferred/selected lens, read scope, write scope, and out-of-scope areas.
+- Preserve inline `human:` comments and resolve them in-place when asked.
+- Keep artifacts reviewable and explicit about assumptions, unknowns, and risks.
+- Leave explicit `TODO:` markers where later refinement is expected.
 
 ## Must Not Do
 
-- treat planning as a generic task list
-- bury sequencing risks
-- jump straight to implementation without a staged plan
+- Convert plan into giant task backlog
+- Ignore unresolved dependency sequencing
+- Drift into implementation execution
 
-## Handoff
+## Done Means
 
-Hand off to `plan/refine` for slicing or spec structure work, or to `plan/validate` when the plan appears ready for execution.
+Planning package defines reviewable slices and explicit sequence assumptions.
 
-## TODO
+## Next Likely Step
 
-- Add guidance for lightweight plans versus multi-slice programs of work.
+Use stage readiness to decide whether to run another `plan/breakdown` pass, a `plan` validation gate, or hand off to the next stage.
+

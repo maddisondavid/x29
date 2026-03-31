@@ -1,50 +1,48 @@
 ---
 name: "x29-plan-validate"
-description: "Use for the plan stage when checking whether slices, specs, and sequencing are ready to support implementation."
+description: "Used for Plan readiness before execution starts."
 ---
 
 # Plan / Validate
 
-## Purpose
+## Routing Contract
 
-Check whether the plan is concrete enough to support implementation without pretending all unknowns have disappeared.
+- **Stage:** `plan`
+- **Mode:** `validate`
+- **Trigger requests:** “is plan ready?”, “validate before implementation”.
+- **Problem solved:** Determines whether slices are small enough, sequenced, and dependency-aware for execute stage.
+- **Common lenses:**
+- readiness
+- dependency-risk
 
-## Capability Directory Check
+## File Scope
 
-Before doing any stage work, identify the capability number in scope and confirm the capability folder exists at `capabilities/JA-<number>-<title>/`.
+### Reads
+- `04-plan/**/*.md`
+- `03-map/**/*.md for traceability`
 
-If a matching `capabilities/JA-<number>-<title>` directory does not exist, stop and direct the user to run `x29 init` to initialize a new capability directory.
+### Writes
+- `04-plan/spec-index.md (status note)`
+- `04-plan/value-slices.md (blocker flags)`
 
-## Expected Inputs
+## Operating Rules
 
-- current `04-plan/` files
-- upstream stage artifacts where needed for traceability
-
-## Expected Outputs
-
-- a readiness judgment
-- blockers or weak sequencing called out explicitly
-- next-step guidance if another planning pass is needed
-
-## May Read
-
-- all files under `04-plan/`
-- upstream stage summaries when needed for traceability
-
-## May Write
-
-- `04-plan/value-slices.md`
-- `04-plan/spec-index.md`
+- Announce routing before editing: stage, mode, inferred/selected lens, read scope, write scope, and out-of-scope areas.
+- Preserve inline `human:` comments and resolve them in-place when asked.
+- Keep artifacts reviewable and explicit about assumptions, unknowns, and risks.
+- Leave explicit `TODO:` markers where later refinement is expected.
 
 ## Must Not Do
 
-- mark the stage ready when slices are too large to review safely
-- ignore unresolved dependencies that will block implementation
+- Mark ready with oversized slices
+- Ignore blocked prerequisites
+- Advance without explicit evidence
 
-## Handoff
+## Done Means
 
-Hand off to `implement/breakdown` when the plan is ready enough to start execution deliberately.
+Gate decision is explicit: ready, conditionally ready, or not ready with blockers.
 
-## TODO
+## Next Likely Step
 
-- Add stronger validation patterns for multi-team sequencing.
+Use stage readiness to decide whether to run another `plan/validate` pass, a `plan` validation gate, or hand off to the next stage.
+

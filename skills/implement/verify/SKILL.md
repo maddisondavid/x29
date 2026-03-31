@@ -1,53 +1,49 @@
 ---
 name: "x29-implement-verify"
-description: "Use for the implement stage when checking whether the current implementation slice is actually verified and ready for handoff or closure."
+description: "Used as the execution readiness gate for correctness and handoff."
 ---
 
 # Implement / Verify
 
-## Purpose
+## Routing Contract
 
-Check whether the current implementation slice is actually ready, including correctness signals, unresolved issues, and alignment with the plan.
+- **Stage:** `implement`
+- **Mode:** `verify`
+- **Trigger requests:** “are we done with this slice?”, “verify execute stage”.
+- **Problem solved:** Checks evidence quality (tests/reviews/observed behavior) and unresolved issues before closure.
+- **Common lenses:**
+- quality
+- risk
+- operability
 
-## Capability Directory Check
+## File Scope
 
-Before doing any stage work, identify the capability number in scope and confirm the capability folder exists at `capabilities/JA-<number>-<title>/`.
+### Reads
+- `05-execute/**/*.md`
+- `04-plan/**/*.md`
+- `relevant verification artifacts`
 
-If a matching `capabilities/JA-<number>-<title>` directory does not exist, stop and direct the user to run `x29 init` to initialize a new capability directory.
-
-## Expected Inputs
-
-- current implementation notes
-- unresolved issue list
-- any available verification evidence such as tests, review notes, or observed behavior
-
-## Expected Outputs
-
-- a verification judgment
-- explicit defects, gaps, or follow-up work
-- a recommendation to continue implementation, fix issues, or synthesize results
-
-## May Read
-
-- all files under `04-plan/`
-- all files under `05-execute/`
-- relevant code and verification artifacts
-
-## May Write
-
+### Writes
 - `05-execute/implementation-notes.md`
 - `05-execute/unresolved-issues.md`
 
+## Operating Rules
+
+- Announce routing before editing: stage, mode, inferred/selected lens, read scope, write scope, and out-of-scope areas.
+- Preserve inline `human:` comments and resolve them in-place when asked.
+- Keep artifacts reviewable and explicit about assumptions, unknowns, and risks.
+- Leave explicit `TODO:` markers where later refinement is expected.
+
 ## Must Not Do
 
-- equate incomplete verification with success
-- close unresolved issues without evidence
-- rewrite history to make the slice appear cleaner than it is
+- Declare success without evidence
+- Close issues by assumption
 
-## Handoff
+## Done Means
 
-Hand off back to `implement/execute` for follow-up work, or to `implement/synthesize` when the slice is complete enough for stakeholder communication.
+Verification judgment is evidence-backed, with clear follow-up actions when not ready.
 
-## TODO
+## Next Likely Step
 
-- Add explicit verification patterns for code review, test evidence, and rollout readiness.
+Use stage readiness to decide whether to run another `implement/verify` pass, a `implement` validation gate, or hand off to the next stage.
+

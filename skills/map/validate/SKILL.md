@@ -1,50 +1,48 @@
 ---
 name: "x29-map-validate"
-description: "Use for the map stage when checking whether component, dependency, API, data, and serviceability impacts are sufficiently mapped to proceed to planning."
+description: "Used to check whether mapping is complete enough for planning."
 ---
 
 # Map / Validate
 
-## Purpose
+## Routing Contract
 
-Check whether the impact analysis is complete enough to support planning and execution sequencing.
+- **Stage:** `map`
+- **Mode:** `validate`
+- **Trigger requests:** “are we ready for planning?”, “validate map”.
+- **Problem solved:** Assesses whether component, contract, and dependency understanding is sufficient for slicing work.
+- **Common lenses:**
+- serviceability
+- observability
+- dependency-risk
 
-## Capability Directory Check
+## File Scope
 
-Before doing any stage work, identify the capability number in scope and confirm the capability folder exists at `capabilities/JA-<number>-<title>/`.
+### Reads
+- `03-map/**/*.md`
+- `02-design/**/*.md`
 
-If a matching `capabilities/JA-<number>-<title>` directory does not exist, stop and direct the user to run `x29 init` to initialize a new capability directory.
+### Writes
+- `03-map/02-open-questions.md (blocker status)`
+- `03-map/00-overview.md (readiness note)`
 
-## Expected Inputs
+## Operating Rules
 
-- current `03-map/` artifacts
-- upstream `02-design/` reasoning
-
-## Expected Outputs
-
-- a readiness judgment
-- explicit impact gaps and risk hotspots
-- a recommendation for the next mapping action if not ready
-
-## May Read
-
-- all files under `02-design/`
-- all files under `03-map/`
-
-## May Write
-
-- `03-map/dependency-impact.md`
-- `03-map/observability-serviceability.md`
+- Announce routing before editing: stage, mode, inferred/selected lens, read scope, write scope, and out-of-scope areas.
+- Preserve inline `human:` comments and resolve them in-place when asked.
+- Keep artifacts reviewable and explicit about assumptions, unknowns, and risks.
+- Leave explicit `TODO:` markers where later refinement is expected.
 
 ## Must Not Do
 
-- mark the stage ready when major integration surfaces remain vague
-- ignore operational visibility or supportability concerns
+- Mark ready with vague dependencies
+- Ignore operational visibility gaps
 
-## Handoff
+## Done Means
 
-Hand off to `plan/breakdown` when the impact map is strong enough to sequence work intentionally.
+Readiness decision identifies concrete blockers or confirms map completeness for planning.
 
-## TODO
+## Next Likely Step
 
-- Add clearer minimum readiness criteria for high-risk infrastructure changes.
+Use stage readiness to decide whether to run another `map/validate` pass, a `map` validation gate, or hand off to the next stage.
+

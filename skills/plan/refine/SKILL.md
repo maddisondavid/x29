@@ -1,59 +1,48 @@
 ---
 name: "x29-plan-refine"
-description: "Use for the plan stage when one slice, spec, dependency, or delivery sequence needs deeper planning detail or later lens-based refinement."
+description: "Used when one slice, dependency, or spec needs deeper planning detail."
 ---
 
 # Plan / Refine
 
-## Purpose
+## Routing Contract
 
-Improve the delivery plan one area at a time, especially value slicing, spec indexing, sequencing, and implementation readiness.
+- **Stage:** `plan`
+- **Mode:** `refine`
+- **Trigger requests:** “refine slice 2”, “resolve planning comments”.
+- **Problem solved:** Improves slice boundaries, acceptance handoff, and sequence quality.
+- **Common lenses:**
+- delivery
+- serviceability
+- release
 
-## Capability Directory Check
+## File Scope
 
-Before doing any stage work, identify the capability number in scope and confirm the capability folder exists at `capabilities/JA-<number>-<title>/`.
+### Reads
+- `04-plan/**/*.md`
+- `03-map/**/*.md`
+- `02-design/**/*.md`
 
-If a matching `capabilities/JA-<number>-<title>` directory does not exist, stop and direct the user to run `x29 init` to initialize a new capability directory.
+### Writes
+- `bounded updates to 04-plan/value-slices.md, 04-plan/spec-index.md, and related plan docs`
 
-## Expected Inputs
+## Operating Rules
 
-- current `04-plan/` documents
-- upstream stage artifacts
-- specific sequencing or slicing concern to refine
-
-## Expected Outputs
-
-- clearer value slices
-- a more useful spec index
-- improved implementation guidance that still remains reviewable
-
-## May Read
-
-- all files under `01-define/`
-- all files under `02-design/`
-- all files under `03-map/`
-- all files under `04-plan/`
-
-## May Write
-
-- `04-plan/value-slices.md`
-- `04-plan/spec-index.md`
-- `04-plan/spec-template.md`
+- Announce routing before editing: stage, mode, inferred/selected lens, read scope, write scope, and out-of-scope areas.
+- Preserve inline `human:` comments and resolve them in-place when asked.
+- Keep artifacts reviewable and explicit about assumptions, unknowns, and risks.
+- Leave explicit `TODO:` markers where later refinement is expected.
 
 ## Must Not Do
 
-- collapse the plan into an over-detailed task tracker
-- hide unresolved dependencies
-- assume one-shot implementation readiness without slice boundaries
+- Over-specify implementation minutiae
+- Hide cross-team dependency risk
 
-## Handoff
+## Done Means
 
-Hand off to `plan/validate` when slices are reviewable, sequenced, and grounded in the previous stages.
+Refined plan area is clearer, reviewable, and still grounded in upstream artifacts.
 
-## Future Direction
+## Next Likely Step
 
-Later versions should support lens or perspective switching for delivery, QA, platform, and release-management viewpoints within the same planning stage.
+Use stage readiness to decide whether to run another `plan/refine` pass, a `plan` validation gate, or hand off to the next stage.
 
-## TODO
-
-- Add heuristics for choosing slice size and sequencing confidence.

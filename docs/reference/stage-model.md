@@ -1,27 +1,44 @@
-# x29 Stage Model
+# x29 Stage Model (Canonical)
 
-## Stages
+## Lifecycle Stages
 
-- `define`: establish intent, scope, outcomes, assumptions, and open questions
-- `design`: compare options, capture decisions, and describe the proposed solution shape
-- `map`: identify impacted components, interfaces, dependencies, and operational concerns
-- `plan`: sequence delivery into reviewable slices and maintain a spec index
-- `implement`: carry out the work, capture implementation notes, and track unresolved issues
+- `define`: clarify intent, scope, assumptions, acceptance criteria, and open questions
+- `design`: compare options, choose direction, and document tradeoffs
+- `map`: map impacted components, contracts, flows, and operational implications
+- `plan`: sequence delivery into reviewable value slices with clear dependencies
+- `implement`: execute slices and verify delivery evidence
 
-## Modes
+## Mode Model
 
-- Breakdown (`breakdown`): summarize current state, identify gaps, and orient the next pass
-- Refine (`refine`): deepen one area of a stage without trying to solve the entire stage in one pass
-- Validate (`validate`): perform a readiness check before advancing
-- Synthesis (`synthesize`): produce a cleaner stakeholder-facing rollup from decomposed working files
+For Define/Design/Map/Plan:
 
-## Implementation Variants
+- `breakdown`: establish current state and produce initial structure
+- `refine`: deepen one concern area in bounded passes
+- `validate`: readiness gate before stage advancement
+- `synthesis`: optional stakeholder-oriented rollup
 
-The `implement` stage uses:
+For Implement:
 
-- Breakdown (`breakdown`)
-- Execute (`execute`)
-- Verify (`verify`)
-- Synthesis (`synthesize`)
+- `breakdown`
+- `execute`
+- `verify`
+- `synthesis`
 
-This naming reflects that implementation is more operational than exploratory.
+## Design Intent
+
+- Stages are user-facing.
+- Modes are internal routing choices that can still be explained to users.
+- Skills enforce structure and constraints.
+- Lenses shape perspective within a mode.
+
+## Readiness Principle
+
+Validation/verification gates are explicit and conservative:
+
+- no silent stage advancement
+- no hidden blockers
+- no fake certainty from weak evidence
+
+## TODO
+
+- Add minimum quality bar checklists per stage/mode.

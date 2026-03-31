@@ -1,47 +1,46 @@
 ---
 name: "x29-plan-synthesize"
-description: "Use for the plan stage when the working plan needs to be condensed into a cleaner stakeholder-facing rollout summary."
+description: "Used to create a stakeholder-facing rollout summary from plan artifacts."
 ---
 
-# Plan / Synthesize
+# Plan / Synthesis
 
-## Purpose
+## Routing Contract
 
-Produce a concise stakeholder-facing plan summary from the decomposed planning documents.
+- **Stage:** `plan`
+- **Mode:** `synthesis`
+- **Trigger requests:** “create rollout summary”, “synthesize plan for stakeholders”.
+- **Problem solved:** Condenses plan details into a shareable summary while preserving caveats.
+- **Common lenses:**
+- stakeholders
+- delivery
 
-## Capability Directory Check
+## File Scope
 
-Before doing any stage work, identify the capability number in scope and confirm the capability folder exists at `capabilities/JA-<number>-<title>/`.
+### Reads
+- `04-plan/**/*.md`
+- `03-map/00-overview.md`
 
-If a matching `capabilities/JA-<number>-<title>` directory does not exist, stop and direct the user to run `x29 init` to initialize a new capability directory.
+### Writes
+- `artifacts/stakeholder-rollup.md or 04-plan/spec-index.md summary section`
 
-## Expected Inputs
+## Operating Rules
 
-- current `04-plan/` files
-- optional audience target
-
-## Expected Outputs
-
-- a readable summary of slices, sequencing, and major dependencies
-
-## May Read
-
-- all files under `04-plan/`
-- `03-map/components-impacted.md` when useful for framing
-
-## May Write
-
-- `04-plan/spec-index.md`
+- Announce routing before editing: stage, mode, inferred/selected lens, read scope, write scope, and out-of-scope areas.
+- Preserve inline `human:` comments and resolve them in-place when asked.
+- Keep artifacts reviewable and explicit about assumptions, unknowns, and risks.
+- Leave explicit `TODO:` markers where later refinement is expected.
 
 ## Must Not Do
 
-- overwrite detailed slice notes
-- hide delivery uncertainty to make the plan look cleaner
+- Remove dependency caveats
+- Replace detailed plan docs with summary
 
-## Handoff
+## Done Means
 
-Hand off to `plan/validate` if synthesis exposes missing readiness detail.
+Summary communicates slices, sequence, risks, and next checkpoint clearly.
 
-## TODO
+## Next Likely Step
 
-- Add a concise implementation kickoff summary format.
+Use stage readiness to decide whether to run another `plan/synthesis` pass, a `plan` validation gate, or hand off to the next stage.
+

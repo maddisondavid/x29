@@ -1,177 +1,53 @@
 ---
 name: "x29-design-refine"
-description: "Use for the design stage when an existing Design package needs a bounded refinement pass through a selected lens or perspective. Use when Codex should inspect current design artifacts, ask for the active lens, announce read/write scope before editing, and improve decision quality without drifting into map, plan, or implementation."
+description: "Used when one design area needs deeper reasoning through a selected lens."
 ---
 
 # Design / Refine
 
-## Purpose
+## Routing Contract
 
-Refine an existing Design package one area at a time through a chosen lens or perspective.
+- **Stage:** `design`
+- **Mode:** `refine`
+- **Trigger requests:** “refine this design for observability”, “review rollout strategy”, or focused design refinement requests.
+- **Problem solved:** Sharpens one design area and resolves targeted `human:` comments.
+- **Common lenses:**
+- architecture-shape
+- interfaces-contracts
+- rollout-migration
+- observability-telemetry
+- performance-capacity
+- security-compliance
 
-This is a Design-stage skill only. It improves the current package in reviewable chunks and does not regenerate the entire design in one pass.
+## File Scope
 
-## Capability Directory Check
-
-Before doing stage work, identify the capability number in scope and confirm the capability folder exists at `capabilities/JA-<number>-<title>/`.
-
-If a matching capability folder does not exist, stop and direct the user to run `x29 init`.
-
-## Interaction Flow
-
-1. Ask for the capability identifier or capability folder.
-2. Inspect the current Design package and relevant Define context.
-3. Ask which lens or perspective should be active for this pass.
-   - If the user asks what lenses are available, provide the supported-lens list before asking them to choose.
-4. Load the matching lens file from [references/lenses/](references/lenses/).
-5. Before editing, tell the user:
-   - the active lens
-   - which Design files will be read
-   - which Design files may be updated
-   - what is out of scope for this pass
-6. Refine only the relevant Design artifacts.
-7. Preserve uncertainty and unresolved tradeoffs explicitly.
-8. Hand off to another Design refinement pass or `design/validate` only when appropriate.
-
-## Supported Lenses
-
-Use exactly one active lens per pass unless the user explicitly asks to chain another pass afterward.
-
-- `architecture-shape`
-- `interfaces-contracts`
-- `data-model-state`
-- `security-compliance`
-- `reliability-operability`
-- `observability-telemetry`
-- `performance-capacity`
-- `rollout-migration`
-- `hardware-topology`
-
-Load lens guidance from:
-
-- [references/lenses/architecture-shape.md](references/lenses/architecture-shape.md)
-- [references/lenses/interfaces-contracts.md](references/lenses/interfaces-contracts.md)
-- [references/lenses/data-model-state.md](references/lenses/data-model-state.md)
-- [references/lenses/security-compliance.md](references/lenses/security-compliance.md)
-- [references/lenses/reliability-operability.md](references/lenses/reliability-operability.md)
-- [references/lenses/observability-telemetry.md](references/lenses/observability-telemetry.md)
-- [references/lenses/performance-capacity.md](references/lenses/performance-capacity.md)
-- [references/lenses/rollout-migration.md](references/lenses/rollout-migration.md)
-- [references/lenses/hardware-topology.md](references/lenses/hardware-topology.md)
-
-Use [references/refinement-scope-patterns.md](references/refinement-scope-patterns.md) when framing the pre-edit scope announcement.
-
-## Expected Inputs
-
-- a capability folder or capability identifier
-- an existing Design package under `02-design/` or `design/`
-- upstream Define context under `01-define/` or `define/`
-- optional notebook context and `human:` review notes
-- a selected refinement lens
-
-## Expected Outputs
-
-- one bounded refinement pass against the current Design package
-- improved option analysis and/or decision rationale
-- clearer blueprint expectations in the lens-relevant files
-- explicit note of what remains open or which lens should run next
-
-## Repository Layout Assumption
-
-Prefer the numbered X29 stage layout:
-
-- `02-design/`
-
-Be tolerant of capability folders that use:
-
-- `design/`
-
-Read and write within whichever Design directory is present. Do not normalize layout unless the user asks.
-
-## `human:` Markup
-
-Treat inline `human:` markup in relevant files as priority refinement input.
-
-When `human:` comments are present:
-
-- treat them as explicit review requests or constraints
-- resolve them in context where possible
-- preserve unresolved concerns as explicit open questions
-- do not silently delete unresolved intent
-
-## File Scope Announcement
-
-Before making edits, clearly tell the user:
-
-- `Active lens: <lens>`
-- `I will read:`
-- a bullet list using filenames only
-- `I may update:`
-- a bullet list using filenames only
-- `Out of scope for this pass: ...`
-
-Keep the write scope narrow and lens-relevant.
-
-## Writing Rules
-
-- prefer concise markdown
-- keep changes small and reviewable
-- preserve file decomposition rather than collapsing into one large document
-- mark assumptions and uncertainty clearly
-- never present guesses as confirmed design fact
-- do not rewrite unrelated files
-
-## Incomplete Information
-
-When information is incomplete:
-
-- improve only what can be grounded in existing Define and Design artifacts
-- preserve unresolved ambiguity explicitly
-- add or update `05-open-questions.md` when needed
-- leave `TODO:` markers where later design refinement is needed
-
-Do not block unnecessarily, but do not flatten ambiguity into false certainty.
-
-## May Read
-
-- `01-define/**/*.md`
-- `define/**/*.md`
+### Reads
 - `02-design/**/*.md`
-- `design/**/*.md`
-- `system-architecture/**/*`
+- `01-define/**/*.md`
+- `selected design lens references`
 - `notebook/**/*.md`
-- capability-level `README.md`
-- workspace-level `x29.md`
-- the selected lens file under `references/lenses/`
-- [references/refinement-scope-patterns.md](references/refinement-scope-patterns.md)
 
-## May Write
+### Writes
+- `bounded updates to 02-design/**/*.md`
 
-- files inside `02-design/`
-- files inside `design/`
+## Operating Rules
 
-Typical updates are limited to:
-
-- `00-summary.md`
-- `01-options-considered.md`
-- `02-decision.md`
-- `03-solution-blueprint.md`
-- `04-risks-and-tradeoffs.md`
-- `05-open-questions.md`
+- Announce routing before editing: stage, mode, inferred/selected lens, read scope, write scope, and out-of-scope areas.
+- Preserve inline `human:` comments and resolve them in-place when asked.
+- Keep artifacts reviewable and explicit about assumptions, unknowns, and risks.
+- Leave explicit `TODO:` markers where later refinement is expected.
 
 ## Must Not Do
 
-- produce component impact mapping or dependency inventories (Map)
-- create delivery slices, sequencing plans, or spec indexes (Plan)
-- generate implementation specs or code (Execute)
-- rewrite the full Design package when one bounded lens pass is sufficient
+- Rewrite all design files at once
+- Drift into code-level implementation instructions
+- Change stage directories outside design
 
-## Handoff
+## Done Means
 
-Hand off to another `design/refine` pass when a different lens or concern still needs work.
+Targeted design concern is materially clearer, with unresolved items tracked explicitly.
 
-Hand off to `design/validate` only when the package looks coherent and unresolved tradeoffs are explicit.
+## Next Likely Step
 
-## TODO
+Use stage readiness to decide whether to run another `design/refine` pass, a `design` validation gate, or hand off to the next stage.
 
-- Add heuristics for minimum safe write scope based on selected lens and package maturity.
