@@ -1,8 +1,6 @@
 # Sample Capability
 
-This example shows the intended working layout for a capability inside an `x29`-managed workspace.
-
-The content is intentionally lightweight. It demonstrates structure, decomposition, and review style rather than a finished delivery artifact set.
+This example demonstrates x29's stage-based interaction model over a document-centric capability workspace.
 
 ## Layout
 
@@ -15,3 +13,25 @@ sample-capability/
   04-plan/
   05-execute/
 ```
+
+## Conversational Usage Examples
+
+- `x29 define capability 123`
+- `resolve comments in 01-define/acceptance-criteria.md from a serviceability lens`
+- `are we ready to move from Design to Map?`
+- `create a stakeholder summary for the current Plan stage`
+
+## Transparency Example
+
+A healthy x29 response should announce routing before edits, for example:
+
+- stage: Define
+- mechanism: `x29-define-refine`
+- lens: serviceability
+- read scope: `01-define/acceptance-criteria.md`, `01-define/open-questions.md`
+- write scope: `01-define/acceptance-criteria.md`, `01-define/open-questions.md`
+- out of scope: Design/Map/Plan/Implement artifacts
+
+## TODO
+
+- Add sample transcripts per stage/mode using this capability.

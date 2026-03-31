@@ -1,59 +1,50 @@
 ---
 name: "x29-map-refine"
-description: "Use for the map stage when one impact area needs deeper analysis, clearer boundaries, or later perspective-specific refinement."
+description: "Used when one mapped impact area needs deeper treatment."
 ---
 
 # Map / Refine
 
-## Purpose
+## Routing Contract
 
-Deepen one impact area at a time by making dependencies, interfaces, data changes, and serviceability concerns more explicit.
+- **Stage:** `map`
+- **Mode:** `refine`
+- **Trigger requests:** “refine dependency impact”, “resolve map comments”, or perspective-specific map requests.
+- **Problem solved:** Improves one mapping concern (dependencies, contracts, flows, operations) with bounded edits.
+- **Common lenses:**
+- dependencies
+- serviceability
+- security
+- performance
 
-## Capability Directory Check
+## File Scope
 
-Before doing any stage work, identify the capability number in scope and confirm the capability folder exists at `capabilities/JA-<number>-<title>/`.
+### Reads
+- `03-map/**/*.md`
+- `02-design/**/*.md`
+- `01-define/**/*.md`
 
-If a matching `capabilities/JA-<number>-<title>` directory does not exist, stop and direct the user to run `x29 init` to initialize a new capability directory.
+### Writes
+- `bounded updates in 03-map/**/*.md`
 
-## Expected Inputs
+## Operating Rules
 
-- current `03-map/` documents
-- upstream `01-define/` and `02-design/` context
-- optionally codebase observations supplied by the user
-
-## Expected Outputs
-
-- sharper impact analysis
-- clearer visibility into cross-component effects
-- explicit unknowns that should influence planning
-
-## May Read
-
-- all files under `01-define/`
-- all files under `02-design/`
-- all files under `03-map/`
-
-## May Write
-
-- `03-map/components-impacted.md`
-- `03-map/api-and-data-changes.md`
-- `03-map/dependency-impact.md`
-- `03-map/observability-serviceability.md`
+- Announce routing before editing: stage, mode, inferred/selected lens, read scope, write scope, and out-of-scope areas.
+- Preserve inline `human:` comments and resolve them in-place when asked.
+- Keep artifacts reviewable and explicit about assumptions, unknowns, and risks.
+- Leave explicit `TODO:` markers where later refinement is expected.
 
 ## Must Not Do
 
-- hide uncertain dependencies
-- invent implementation tasks that belong in `plan`
-- broaden the work item beyond the intended capability without saying so
+- Re-solve design decisions
+- Create plan slices/tasks
+- Hide unresolved dependencies
 
-## Handoff
+## Done Means
 
-Hand off to `map/validate` when impact and dependency understanding is strong enough to sequence delivery.
+Chosen impact area is clearer and remaining risk/questions are explicit.
 
-## Future Direction
+## Next Likely Step
 
-Later versions should support perspective switching for operations, data, platform, security, and support lenses within the same map stage.
+Use stage readiness to decide whether to run another `map/refine` pass, a `map` validation gate, or hand off to the next stage.
 
-## TODO
-
-- Add structured prompts for serviceability and migration analysis.
